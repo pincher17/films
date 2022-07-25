@@ -13,20 +13,6 @@ export const filmsApi = {
             return response;
         })
     },
-    getUser(userId){
-        return instance.get(`users/${userId}`).then(response =>{
-           return response;
-        })
-    },
-    getPosts(){
-        return instance.get(`posts`).then(response =>{
-            return response;
-        })
-    },
-    getPostUser(userId){
-        return instance.get(`posts?userId=${userId}`).then(response =>{
-            return response;
-        })
-    },
+    
 } 
 
