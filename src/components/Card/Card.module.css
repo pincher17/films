@@ -1,0 +1,34 @@
+.wrapper_cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card{
+  width: 222px;
+  margin-right: 21px;
+}
+
+
+.img{
+  width: 222px;
+  height: 333px;
+}
+
+.year{
+  margin-bottom: 50px;
+}
+
+@media (min-width: 1501px){
+  .card:nth-child(6n+6){
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1500px){
+  .card{
+    margin-right: 35px;
+  }
+  .card:nth-child(5n+5){
+    margin-right: 0;
+  }
+}
