@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+a{
+  text-decoration: none;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +41,25 @@
     transform: rotate(360deg);
   }
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #878787 #242424;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #242424;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #878787;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+  }

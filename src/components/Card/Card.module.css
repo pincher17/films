@@ -8,27 +8,108 @@
   margin-right: 21px;
 }
 
+.img_wrapper{
+  position: relative;
+}
 
 .img{
   width: 222px;
   height: 333px;
+  
+}
+
+.rating{
+  width: 44px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(59,179,59);
+  border-radius: 15px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.rating_num{
+  color: white;
 }
 
 .year{
   margin-bottom: 50px;
 }
 
-@media (min-width: 1501px){
+
+
+
+
+
+
+/* @media (min-width: 1501px){
+  .card{
+    margin-right: 21px;
+  }
   .card:nth-child(6n+6){
     margin-right: 0;
   }
+  .card:nth-child(5n+5){
+    margin-right: 21px;
+  }
+  .card:nth-child(4n+4){
+    margin-right: 21px;
+  }
+  .card:nth-child(3n+3){
+    margin-right: 21px;
+  }
+} */
+
+/* .card:nth-child(6n+6){
+  margin-right: 0;
+} */
+
+@media (min-width: 1500px){
+  .card{
+    margin-right: 21px;
+  }
+  .card:nth-child(6n+6){
+    margin-right: 0;
+  }
+/*   .card:nth-child(4n+4){
+    margin-right: 35px;
+  }
+  .card:nth-child(3n+3){
+    margin-right: 35px;
+  } */
 }
 
-@media (max-width: 1500px){
+@media (min-width: 1301px) and (max-width: 1499px){
   .card{
     margin-right: 35px;
   }
   .card:nth-child(5n+5){
     margin-right: 0;
   }
+/*   .card:nth-child(3n+3){
+    margin-right: 54px;
+  } */
 }
+
+@media (min-width: 1151px) and (max-width: 1300px){
+  .card{
+    margin-right: 54px;
+  }
+  .card:nth-child(4n+4){
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1150px){
+  .card{
+    margin-right: 54px;
+  }
+  .card:nth-child(3n+3){
+    margin-right: 0;
+  }
+}
+
+

@@ -9,7 +9,6 @@ const newFilms = createSlice({
     },
     reducers: {
         addNewFilms(state, action) {
-            console.log(action)
             state.films = action.payload;
         },
         addLimit(state) {
