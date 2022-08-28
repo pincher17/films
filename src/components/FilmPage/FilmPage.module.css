@@ -2,7 +2,50 @@
  z-index: 1;
 }
 
+
+.wrapper_watch_film{
+  display: flex;
+  position: relative;
+}
+
+.name{
+  font-size: 36px;
+  font-weight: bolder;
+}
+
+.part_encyclopedia{
+  display: flex;
+}
+
+.encyclopedia_title{
+  color: rgba(255, 255, 255, 0.514);
+}
+
+.encyclopedia_name{
+  font-size: 20px;
+}
+
+.margin_top_encyclopedia{
+  margin-top: -8px;
+}
+
+.img{
+  margin-right: 5px;
+}
+
+.wrapper.film{
+  position: absolute;
+}
+
+.film{
+  position: absolute !important;
+  width: 70% !important; 
+    height: 100% !important;
+    
+}
+
 iframe{
-  width: 100%;
-  height: 85vh;
+  position: absolute !important;
+  width: 100% !important;
+    height: 100% !important;
 }

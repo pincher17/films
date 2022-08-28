@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { chooseMovie } from '../../store/filmInfoSlice';
+import { chooseMovie, getFilmById } from '../../store/filmInfoSlice';
 import FilmInfo from '../FilmPage/FilmInfo';
 import s from './Card.module.css';
 
@@ -9,7 +9,7 @@ import s from './Card.module.css';
 const Card = (props) =>{
     const dispatch = useDispatch()
     const filmId = useSelector(state => state.filmInfo.selectedFilm)
-    const selectMovie = (id) => dispatch(chooseMovie(id))
+
     
     return (
     <div className={s.wrapper_cards}>

@@ -10,9 +10,11 @@ import s from './FilmPage.module.css';
 const FilmTrailer2 = (props) =>{
   const dispatch = useDispatch()
   let { id } = useParams();
-  const navigate = useNavigate()
-  const film = useSelector(state => state.filmInfo.info)
-  const dataKinopoisk = {'data-kinopoisk': `${id}`}
+  /* const navigate = useNavigate() */
+  const filmInfoId = useSelector(state => state.filmInfo.info)
+  const {preview, countries, genres, ratingKinopoisk} = useSelector(state => state.filmInfo)
+  /* const countries = useSelector(state => state.filmInfo.countries) */
+  /* const dataKinopoisk = {'data-kinopoisk': `${id}`} */
   const refDataFilm = useRef(null);
   useEffect(() => {
   dispatch(getFilmById(id))
@@ -35,7 +37,9 @@ const FilmTrailer2 = (props) =>{
     };
   });
 }; */
-console.log(film)
+
+ console.log(countries)
+
 
 /* useEffect(() => {
   navigate(`../film/${id}`, { replace: true })
@@ -66,8 +70,50 @@ let link = getYouTubeId(videos) */
 
           {/* <div id="yohoho" data-kinopoisk="435"></div> */}
           {/* <script src="//yohoho.cc/yo.js"></script> */}
-          <div>{film.name}</div>
-          <div key={id}><div ref={refDataFilm} id="yohoho" data-tv="1" ></div></div>
+          <div className={s.name} >{filmInfoId.name} {`(${filmInfoId.year} г.)`}</div>
+          <div className={s.part_encyclopedia}>
+          <p className={s.encyclopedia_name +' '+ s.encyclopedia_title}>Страна:&nbsp;</p>
+          {countries.map((i, index, arr)=>
+            <>
+            <p className={s.encyclopedia_name}>
+              {i.name}
+              {index===arr.length - 1
+                ?<></>
+                :<span className={s.encyclopedia_name}>,&nbsp;</span>}</p>
+            
+            </>
+          )}
+          </div>
+          <div className={s.part_encyclopedia}>
+          <p className={s.encyclopedia_name +' '+ s.encyclopedia_title + ' ' + s.margin_top_encyclopedia}>Жанр:&nbsp;</p>
+          {genres.map((i, index, arr)=>
+            <>
+            <p className={s.encyclopedia_name + ' ' + s.margin_top_encyclopedia}>
+              {i.name}
+              {index===arr.length - 1
+                ?<></>
+                :<span className={s.encyclopedia_name}>,&nbsp;</span>}</p>
+            
+            </>
+          )}
+          </div>
+          <div className={s.part_encyclopedia}>
+          <p className={s.encyclopedia_name +' '+ s.encyclopedia_title + ' ' + s.margin_top_encyclopedia}>Рейтинг Кинопоиска:&nbsp;</p>
+            <>
+            <p className={s.encyclopedia_name + ' ' + s.margin_top_encyclopedia}>
+              {ratingKinopoisk}</p>
+            </>
+          
+          </div>
+          <div className={s.wrapper_watch_film}>
+            <div>
+              <img className={s.img} src={preview} alt="" />
+            </div>
+            <div className={s.wrapper.film} key={id}>
+              <div className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div>
+            </div>
+          </div>
+
           
           </LayoutFilm>
             

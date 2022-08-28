@@ -8,7 +8,7 @@ import s from './FilmInfo.module.css';
 import LayoutFilm from '../layoutFilm/LayoutFilm';
 
 const FilmInfo = (props) =>{
-    const dispatch = useDispatch()
+/*     const dispatch = useDispatch()
     
     const film = useSelector(state => state.filmInfo.info)
     let { id } = useParams();
@@ -21,7 +21,7 @@ const FilmInfo = (props) =>{
     
     useEffect(() => {
       navigate(`../film/${id}`, { replace: true })
-      },[id])
+      },[id]) */
 
     
     /* if(!film.name) return <div>loading...</div> */
@@ -29,7 +29,7 @@ const FilmInfo = (props) =>{
     return (
         <div className={s.film_info}>
         {/* <FilmTrailer name={film.name} />  */} 
-        <FilmTrailer2 filmId={id} videos={film.videos} />   
+        <FilmTrailer2 />   
         </div>
     
     )

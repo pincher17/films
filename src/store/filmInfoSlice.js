@@ -6,12 +6,19 @@ const filmInfo = createSlice({
     initialState: {
         info: {},
         selectedFilm: '',
-
+        preview: '',
+        countries: [],
+        genres: [],
+        ratingKinopoisk: '',
     },
     reducers: {
         addFilmInfo(state, action) {
             
             state.info = action.payload;
+            state.preview = action.payload.poster.previewUrl
+            state.countries = action.payload.countries
+            state.genres = action.payload.genres
+            state.ratingKinopoisk = action.payload.rating.kp
         },
         chooseMovie(state, action) {
             
