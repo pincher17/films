@@ -113,7 +113,9 @@ let link = getYouTubeId(videos) */
               <div className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div>
             </div>
           </div>
-
+          
+          <div className={s.title_description}>Описание:</div>
+          <p className={s.description}>{filmInfoId.description}</p>
           
           </LayoutFilm>
             

@@ -49,3 +49,14 @@ iframe{
   width: 100% !important;
     height: 100% !important;
 }
+
+.title_description{
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.description{
+  margin-top: 15px;
+  font-size: 18px;
+}

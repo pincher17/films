@@ -39,6 +39,7 @@ export default function Search(props) {
             onChange={(e) => setText(e.target.value)}
             onFocus={() => setSearchList(true)}
             onBlur={() => setSearchList(false)}></input>
+   
     {searchList && 
       <div className={s.search_list}>
         {resultSearch.map((i)=>
@@ -58,6 +59,11 @@ export default function Search(props) {
          </div>
         )}
       </div>}
+      <div className={s.wrapper_btn_search}>
+        <NavLink to={'/search'}>
+        <div className={s.btn_search}></div>
+        </NavLink>
+     </div>
     </div>
   );
 }
