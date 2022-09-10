@@ -1,12 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { filmsApi } from '../api/api';
 
+type initialStateType ={
+    resultSearch: Array<any>
+}
+
+const initialState: initialStateType ={
+    resultSearch: []
+}
+
 const search = createSlice({
     name: 'search',
-    initialState: {
-        resultSearch: [],
-        
-    },
+    initialState,
     reducers: {
         addResultSearch(state, action) {
             
@@ -19,11 +24,11 @@ const search = createSlice({
 export const {addResultSearch} = search.actions;
 
 
-export const getFilmSearch = (query) =>{
-    return (dispatch) => {
+export const getFilmSearch = (query: string) =>{
+    return (dispatch: any) => {
 
         //dispatch(setFetching(true))
-        filmsApi.getFilmSearch(query).then(response =>{
+        filmsApi.getFilmSearch(query).then((response: any) =>{
             dispatch(addResultSearch(response.data.docs))
             //dispatch(setFetching(false))
     })

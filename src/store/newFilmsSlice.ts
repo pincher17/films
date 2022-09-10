@@ -1,12 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { filmsApi } from '../api/api';
 
+type initialStateType ={
+    films: Array<any>
+    limit: number
+}
+
+const initialState: initialStateType ={
+    films: [],
+    limit: 10,
+}
+
 const newFilms = createSlice({
     name: 'newFilms',
-    initialState: {
-        films: [],
-        limit: 10,
-    },
+    initialState,
     reducers: {
         addNewFilms(state, action) {
             state.films = action.payload;
@@ -14,20 +21,17 @@ const newFilms = createSlice({
         addLimit(state) {
             state.limit = state.limit + 10;
         },
-        removeTodo(state, action) {
-            state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
-        }
     },
 });
 
-export const {addNewFilms, addLimit, removeTodo} = newFilms.actions;
+export const {addNewFilms, addLimit} = newFilms.actions;
 
 
-export const getnewFilmsThunk = (limit) =>{
-    return (dispatch) => {
+export const getnewFilmsThunk = (limit: any) =>{
+    return (dispatch: any) => {
 
         //dispatch(setFetching(true))
-        filmsApi.getNewFilms(limit).then(response =>{
+        filmsApi.getNewFilms(limit).then((response: any) =>{
             dispatch(addNewFilms(response.data.docs))
             //dispatch(setFetching(false))
     })

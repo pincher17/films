@@ -16,11 +16,11 @@ const youTubeTrailer = createSlice({
 export const {addTrailer} = youTubeTrailer.actions;
 
 
-export const getTrailerThunk = (nameFilm) =>{
-    return (dispatch) => {
+export const getTrailerThunk = (nameFilm: string) =>{
+    return (dispatch: any) => {
 
         //dispatch(setFetching(true))
-        youtube.getTrailer(nameFilm).then(response =>{
+        youtube.getTrailer(nameFilm).then((response: any) =>{
             dispatch(addTrailer(response.data))
             //dispatch(setFetching(false))
     })

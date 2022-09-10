@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilmById } from '../../store/filmInfoSlice';
+import { getFilmById } from '../../store/filmInfoSlice.ts';
 import FilmTrailer from './FilmTrailer';
 import { useNavigate, useParams } from 'react-router-dom';
 import FilmTrailer2 from './FilmTrailer2';

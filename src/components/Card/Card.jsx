@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { chooseMovie, getFilmById } from '../../store/filmInfoSlice';
+import { chooseMovie, getFilmById } from '../../store/filmInfoSlice.ts';
 import FilmInfo from '../FilmPage/FilmInfo';
 import s from './Card.module.css';
 

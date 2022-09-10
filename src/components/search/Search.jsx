@@ -4,13 +4,13 @@ import TextField from '@mui/material/TextField';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, Router, useRoutes, useNavigate, useParams } from 'react-router-dom';
-import { getFilmSearch } from '../../store/searchSlice';
+import { getFilmSearch } from '../../store/searchSlice.ts';
 import SearchIcon from '@mui/icons-material/Search';
 import s from './SearchInput.module.css';
 
 
 
-export default function Search(props) {
+const Search = (props) => {
 
   const [text, setText] = useState('');
   const [searchList, setSearchList] = useState(false);
@@ -69,3 +69,5 @@ export default function Search(props) {
     </div>
   );
 }
+
+export default Search;

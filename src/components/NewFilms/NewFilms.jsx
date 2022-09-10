@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice';
+import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice.ts';
 import Card from '../Card/Card';
 import s from './NewFilms.module.css';
 

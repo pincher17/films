@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import filmInfo from './filmInfoSlice';
 import newFilmsReducer from './newFilmsSlice';
 import searchSlice from './searchSlice';
@@ -14,7 +14,7 @@ import youTubeTrailer from './youtubeSlice';
   reducer: rootReducer,
 }); */
 
-export default configureStore({
+const store = configureStore({
   reducer: {
   newFilms: newFilmsReducer,
   trailer: youTubeTrailer,
@@ -22,3 +22,10 @@ export default configureStore({
   search: searchSlice,
   },
 });
+
+
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+export default store

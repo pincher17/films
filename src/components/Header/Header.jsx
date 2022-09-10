@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Search from '../search/Search';
-import SearchInput from '../search/SearchInput';
 import s from './Header.module.css';
 
 

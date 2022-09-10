@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getFilmById } from '../../store/filmInfoSlice';
-import { getTrailerThunk } from '../../store/youtubeSlice';
+import { getFilmById } from '../../store/filmInfoSlice.ts';
+import { getTrailerThunk } from '../../store/youtubeSlice.ts';
 import Layout from '../layout/Layout';
 import LayoutFilm from '../layoutFilm/LayoutFilm';
 import s from './FilmPage.module.css';
