@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, Router, useRoutes, useNavigate, useParams } from 'react-router-dom';
 import { getFilmSearch } from '../../store/searchSlice';
+import SearchIcon from '@mui/icons-material/Search';
 import s from './SearchInput.module.css';
 
 
@@ -16,6 +17,7 @@ export default function Search(props) {
   const dispatch = useDispatch()
   const resultSearch = useSelector(state => state.search.resultSearch)
   
+
   const navigate = useNavigate();
 
   let { id } = useParams();
@@ -46,7 +48,7 @@ export default function Search(props) {
          <div key={i.id} className={s.card}>
             <div onMouseDown={()=> navigate('../film/' + i.id, { replace: true })}>
             <div className={s.img_wrapper}>
-            <img className={s.img} src={i.poster.previewUrl} alt="" />
+            <img className={s.img} src={i.poster?.previewUrl} alt="poster" />
             
             <div className={s.rating}>
                 <div className={s.name}>{i.name}</div>
@@ -61,7 +63,7 @@ export default function Search(props) {
       </div>}
       <div className={s.wrapper_btn_search}>
         <NavLink to={'/search'}>
-        <div className={s.btn_search}></div>
+        <div className={s.btn_search}><SearchIcon x={{ fontSize: 40 }}/></div>
         </NavLink>
      </div>
     </div>

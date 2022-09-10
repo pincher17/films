@@ -5,7 +5,7 @@ const search = createSlice({
     name: 'search',
     initialState: {
         resultSearch: [],
-
+        
     },
     reducers: {
         addResultSearch(state, action) {
