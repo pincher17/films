@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
-import { chooseMovie, getFilmById } from '../../store/filmInfoSlice.ts';
-import FilmInfo from '../FilmPage/FilmInfo';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import s from './Card.module.css';
 
 
 const Card = (props) =>{
-    const dispatch = useDispatch()
-    const filmId = useSelector(state => state.filmInfo.selectedFilm)
 
     
     return (
@@ -25,7 +20,6 @@ const Card = (props) =>{
             <div className={s.year}>{i.year}</div>
             </div>
             </NavLink>
-            {/* {filmId === i.id && <FilmInfo filmId={filmId} />} */}
          </div>
         )}
         

@@ -1,8 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { filmsApi } from '../api/api';
+import { ArrayFilmsType, FilmsType } from '../types/FilmsType';
 
 type initialStateType ={
-    resultSearch: Array<any>
+    resultSearch: Array<FilmsType>
 }
 
 const initialState: initialStateType ={
@@ -13,7 +14,7 @@ const search = createSlice({
     name: 'search',
     initialState,
     reducers: {
-        addResultSearch(state, action) {
+        addResultSearch(state, action:PayloadAction<ArrayFilmsType>) {
             
             state.resultSearch = action.payload;
         },

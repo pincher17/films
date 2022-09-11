@@ -126,5 +126,3 @@ let link = getYouTubeId(videos) */
 
 export default FilmTrailer2;
 
-
-/* {...dataKinopoisk } */

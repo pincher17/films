@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice.ts';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice';
 import Card from '../Card/Card';
 import s from './NewFilms.module.css';
 
 
-const NewFilms = (props) =>{
+const NewFilms: React.FC = () =>{
 
-  const films = useSelector(state => state.newFilms.films);
-  const limit = useSelector(state => state.newFilms.limit);
-  const dispatch = useDispatch()
+  const films = useAppSelector(state => state.newFilms.films);
+  const limit = useAppSelector(state => state.newFilms.limit);
+  const dispatch = useAppDispatch()
 
   const showMore = () => dispatch(addLimit())
   

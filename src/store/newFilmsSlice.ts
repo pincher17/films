@@ -1,8 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { filmsApi } from '../api/api';
+import { ArrayFilmsType, FilmsType } from '../types/FilmsType';
 
 type initialStateType ={
-    films: Array<any>
+    films: Array<FilmsType>
     limit: number
 }
 
@@ -15,8 +16,8 @@ const newFilms = createSlice({
     name: 'newFilms',
     initialState,
     reducers: {
-        addNewFilms(state, action) {
-            state.films = action.payload;
+        addNewFilms(state, action:PayloadAction<ArrayFilmsType>) {
+            state.films = action.payload
         },
         addLimit(state) {
             state.limit = state.limit + 10;
