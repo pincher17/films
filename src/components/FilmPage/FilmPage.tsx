@@ -1,27 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getFilmById } from '../../store/filmInfoSlice.ts';
-import { getTrailerThunk } from '../../store/youtubeSlice.ts';
-import Layout from '../layout/Layout';
+import { useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { getFilmById } from '../../store/filmInfoSlice';
 import LayoutFilm from '../layoutFilm/LayoutFilm';
 import s from './FilmPage.module.css';
 
-const FilmTrailer2 = (props) =>{
-  const dispatch = useDispatch()
-  let { id } = useParams();
-  /* const navigate = useNavigate() */
-  const filmInfoId = useSelector(state => state.filmInfo.info)
-  const {preview, countries, genres, ratingKinopoisk} = useSelector(state => state.filmInfo)
-  /* const countries = useSelector(state => state.filmInfo.countries) */
-  /* const dataKinopoisk = {'data-kinopoisk': `${id}`} */
-  const refDataFilm = useRef(null);
+const FilmPage: React.FC = (props) =>{
+  const dispatch = useAppDispatch()
+  let { id }: any = useParams();
+  const filmInfoId = useAppSelector(state => state.filmInfo.info)
+  const {preview, countries, genres, ratingKinopoisk} = useAppSelector(state => state.filmInfo)
+  const refDataFilm = useRef<HTMLInputElement | null>(null);
   useEffect(() => {
   dispatch(getFilmById(id))
   }, [id]);
 
   useEffect(() => {
-    refDataFilm.current.setAttribute("data-kinopoisk", `${id}`);
+    refDataFilm.current?.setAttribute("data-kinopoisk", `${id}`);
   }, [id]);
 
 /* let videos = props.videos.trailers */
@@ -38,7 +34,6 @@ const FilmTrailer2 = (props) =>{
   });
 }; */
 
- console.log(countries)
 
 
 /* useEffect(() => {
@@ -64,13 +59,13 @@ let link = getYouTubeId(videos) */
           <LayoutFilm>
           {/* <iframe 
               src={link[1].embedUrl}
-              src='https://www.yandex.ru'
+              src='https://www.site.ru'
               allowFullScreen 
               title="Video player" /> */}
 
           {/* <div id="yohoho" data-kinopoisk="435"></div> */}
           {/* <script src="//yohoho.cc/yo.js"></script> */}
-          <div className={s.name} >{filmInfoId.name} {`(${filmInfoId.year} г.)`}</div>
+          <div className={s.name} >{filmInfoId?.name} {`(${filmInfoId?.year} г.)`}</div>
           <div className={s.part_encyclopedia}>
           <p className={s.encyclopedia_name +' '+ s.encyclopedia_title}>Страна:&nbsp;</p>
           {countries.map((i, index, arr)=>
@@ -109,13 +104,13 @@ let link = getYouTubeId(videos) */
             <div>
               <img className={s.img} src={preview} alt="" />
             </div>
-            <div className={s.wrapper.film} key={id}>
-              <div className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div>
+            <div key={id.toString()} className={s.wrapper.film}>
+              <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div>
             </div>
           </div>
           
           <div className={s.title_description}>Описание:</div>
-          <p className={s.description}>{filmInfoId.description}</p>
+          <p className={s.description}>{filmInfoId?.description}</p>
           
           </LayoutFilm>
             
@@ -124,5 +119,5 @@ let link = getYouTubeId(videos) */
     )
 }
 
-export default FilmTrailer2;
+export default FilmPage;
 

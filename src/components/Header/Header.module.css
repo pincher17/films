@@ -17,10 +17,16 @@
   height: 100%;
 }
 
-.logo{
+/* .logo{
   color: rgb(231 46 46);
   font-weight: bold;
   text-decoration: none;
+  
+} */
+
+.logo{
+  margin-top: 2px;
+  width: 80px;
   
 }
 

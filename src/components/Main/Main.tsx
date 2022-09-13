@@ -3,10 +3,8 @@ import NewFilms from '../NewFilms/NewFilms';
 import s from './Main.module.css';
 
 
-const Main = (props) =>{
+const Main: React.FC = () =>{
 
-
-  
     return (
     <main className={s.main}>
         <NewFilms />

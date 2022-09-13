@@ -1,9 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FilmsType } from '../../types/FilmsType';
 import s from './Card.module.css';
 
+type PropsType ={
+    cards: Array<FilmsType>
+}
 
-const Card = (props) =>{
+const Card: React.FC<PropsType> = (props) =>{
 
     
     return (

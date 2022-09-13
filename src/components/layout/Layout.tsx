@@ -1,8 +1,11 @@
 import React from 'react';
 import s from './Layout.module.css';
 
+type PropsType ={
+    children: React.ReactNode
+}
 
-const Layout = (props) =>{
+const Layout: React.FC<PropsType> = (props) =>{
 
 
   

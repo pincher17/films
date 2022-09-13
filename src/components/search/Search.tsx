@@ -4,18 +4,18 @@ import TextField from '@mui/material/TextField';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, Router, useRoutes, useNavigate, useParams } from 'react-router-dom';
-import { getFilmSearch } from '../../store/searchSlice.ts';
+import { getFilmSearch } from '../../store/searchSlice';
 import SearchIcon from '@mui/icons-material/Search';
 import s from './SearchInput.module.css';
+import { useAppDispatch, useAppSelector } from '../../hook';
 
 
-
-const Search = (props) => {
+const Search: React.FC = () => {
 
   const [text, setText] = useState('');
   const [searchList, setSearchList] = useState(false);
-  const dispatch = useDispatch()
-  const resultSearch = useSelector(state => state.search.resultSearch)
+  const dispatch = useAppDispatch()
+  const resultSearch = useAppSelector(state => state.search.resultSearch)
   
 
   const navigate = useNavigate();
@@ -57,13 +57,12 @@ const Search = (props) => {
             </div>
             </div>
             </div>
-            {/* {filmId === i.id && <FilmInfo filmId={filmId} />} */}
          </div>
         )}
       </div>}
       <div className={s.wrapper_btn_search}>
         <NavLink to={'/search'}>
-        <div className={s.btn_search}><SearchIcon x={{ fontSize: 40 }}/></div>
+        <div className={s.btn_search}><SearchIcon sx={{ fontSize: 28 }}/></div>
         </NavLink>
      </div>
     </div>

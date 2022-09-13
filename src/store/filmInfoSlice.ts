@@ -3,7 +3,7 @@ import { filmsApi } from '../api/api';
 import { FilmInfoType } from '../types/film';
 
 type initialStateType ={
-    info: FilmInfoType | Object
+    info: FilmInfoType | null
     preview: string
     countries: Array<any>
     genres: Array<any>
@@ -11,7 +11,7 @@ type initialStateType ={
 }
 
 const initialState: initialStateType ={
-    info: {},
+    info: null,
     preview: '',
     countries: [],
     genres: [],
@@ -36,7 +36,7 @@ const filmInfo = createSlice({
 export const {addFilmInfo} = filmInfo.actions;
 
 
-export const getFilmById = (id: number) =>{
+export const getFilmById = (id: any) =>{
     return (dispatch:any) => {
 
         //dispatch(setFetching(true))

@@ -1,8 +1,11 @@
 import React from 'react';
 import s from './LayoutFilm.module.css';
 
+type PropsType ={
+    children: React.ReactNode
+}
 
-const LayoutFilm = (props) =>{
+const LayoutFilm: React.FC<PropsType> = (props) =>{
 
 
   
