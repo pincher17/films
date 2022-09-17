@@ -43,6 +43,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .search_list{
@@ -65,6 +66,7 @@ box-shadow: 0px 11px 10px 5px rgba(0, 0, 0, 0.52);
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .img{

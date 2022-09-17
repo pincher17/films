@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { getFilmById } from '../../store/filmInfoSlice';

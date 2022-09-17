@@ -18,8 +18,10 @@ export const filmsApi = {
             return response;
         })
     },
-    getFilmSearch(query){
-        return instance.get(`movie?search=${query}&field=name&limit=10&isStrict=false&sortField=votes.imdb&sortType=-1&token=${TOKEN}`).then(response =>{
+    getFilmSearch(query, page = 1){
+        /* return instance.get(`movie?search=${query}&field=name&limit=10&isStrict=false&sortField=votes.imdb&sortType=-1&token=${TOKEN}`) */
+        return instance.get(`movie?search=${query}&field=name&page=${page}&limit=10&isStrict=false&sortField[]=votes.kp&sortField[]=premiere.world&sortType[]=-1&sortType[]=-1&token=${TOKEN}`)
+        .then(response =>{
             return response;
         })
     },

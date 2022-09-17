@@ -16,11 +16,7 @@ const Search: React.FC = () => {
   const [searchList, setSearchList] = useState(false);
   const dispatch = useAppDispatch()
   const resultSearch = useAppSelector(state => state.search.resultSearch)
-  
-
   const navigate = useNavigate();
-
-  let { id } = useParams();
 
   useEffect(() => {
     
@@ -28,9 +24,9 @@ const Search: React.FC = () => {
   
     }, [text]);
 
-    useEffect(() => {
-  
-    },[id])
+  const submitForm = () => {
+      navigate(`/search/${text}`)
+  }
 
 
   return (
@@ -61,9 +57,9 @@ const Search: React.FC = () => {
         )}
       </div>}
       <div className={s.wrapper_btn_search}>
-        <NavLink to={'/search'}>
-        <div className={s.btn_search}><SearchIcon sx={{ fontSize: 28 }}/></div>
-        </NavLink>
+        {/* <NavLink to={'/search'} > */}
+        <div onClick={submitForm} className={s.btn_search}><SearchIcon sx={{ fontSize: 28 }}/></div>
+        {/* </NavLink> */}
      </div>
     </div>
   );
