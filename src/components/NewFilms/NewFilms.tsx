@@ -27,7 +27,7 @@ const NewFilms: React.FC = () =>{
         <div className={s.wrapper_name_block}>
             <div><p className={s.name_block}>Новые фильмы</p></div>
                 <div>
-                    <NavLink to={"/"} className={s.btn}>
+                    <NavLink to={"/films"} className={s.btn}>
                         Все фильмы
                     </NavLink>
                 </div>

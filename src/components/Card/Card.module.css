@@ -10,13 +10,15 @@
 
 .img_wrapper{
   position: relative;
+  
 }
 
 .img{
   width: 222px;
   height: 333px;
-  
+  border-radius: 12px;
 }
+
 
 .rating{
   width: 44px;

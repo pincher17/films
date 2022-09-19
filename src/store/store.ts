@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import allFilmsSlice from './allFilmsSlice';
 import filmInfo from './filmInfoSlice';
+import filtersSlice from './filtersSlice';
 import newFilmsReducer from './newFilmsSlice';
 import searchSlice from './searchSlice';
 import youTubeTrailer from './youtubeSlice';
@@ -20,6 +22,8 @@ const store = configureStore({
   trailer: youTubeTrailer,
   filmInfo: filmInfo,
   search: searchSlice,
+  filters: filtersSlice,
+  allFilms: allFilmsSlice
   },
 });
 

@@ -1,9 +1,5 @@
-import { makeStyles } from '@material-ui/styles';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, NavLink, Router, useRoutes, useNavigate, useParams } from 'react-router-dom';
+import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getFilmSearch } from '../../store/searchSlice';
 import SearchIcon from '@mui/icons-material/Search';
 import s from './SearchInput.module.css';
@@ -17,6 +13,7 @@ const Search: React.FC = () => {
   const dispatch = useAppDispatch()
   const resultSearch = useAppSelector(state => state.search.resultSearch)
   const navigate = useNavigate();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     
@@ -28,6 +25,13 @@ const Search: React.FC = () => {
       navigate(`/search/${text}`)
   }
 
+  const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) =>{
+    if (e.key === "Enter") {
+      navigate(`/search/${text}`)
+      inputRef.current?.blur()
+    }
+  }
+
 
   return (
     <div className={s.search}>
@@ -36,7 +40,11 @@ const Search: React.FC = () => {
             type='search'
             onChange={(e) => setText(e.target.value)}
             onFocus={() => setSearchList(true)}
-            onBlur={() => setSearchList(false)}></input>
+            onBlur={() => setSearchList(false)}
+            onKeyPress={onKeyPressHandler}
+            ref={inputRef}
+            >
+            </input>
    
     {searchList && 
       <div className={s.search_list}>

@@ -42,6 +42,24 @@ nav a{
   color: white;
   cursor: pointer;
   text-decoration: none;
+  position: relative;
+  line-height: 1.5;
+}
+
+nav a:after {
+	display: block;
+	position: absolute;
+	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+	width: 0;/*задаём длинну линии до наведения курсора*/
+	height: 2px; /*задаём ширину линии*/
+	background-color: rgb(184, 22, 22); /*задаём цвет линии*/
+	content: "";
+	transition: width 0.3s ease-out; /*задаём время анимации*/
+}
+
+nav a:hover:after,
+nav a:focus:after {
+	width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
 }
 
 @media (max-width: 1500px){

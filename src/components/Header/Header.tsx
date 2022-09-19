@@ -13,7 +13,7 @@ const Header: React.FC = () =>{
         <NavLink to={'/'} className={s.logo}><img className={s.logo} src={logo} alt='logo'></img></NavLink>
         <Search />
         <nav className={s.nav}>
-        <NavLink to={'/'} className={s.nav_item}>Фильмы</NavLink>
+        <NavLink to={'/films'} className={s.nav_item}>Фильмы</NavLink>
         <NavLink to={'/'} className={s.nav_item}>Сериалы</NavLink>
         <NavLink to={'/'} className={s.nav_item}>Cохраненное</NavLink>
         </nav>
