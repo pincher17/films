@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
-import { getAllFilmsThunk } from '../../store/allFilmsSlice';
+import { getAllFilmsThunk, nextPage, setPage } from '../../store/allFilmsSlice';
 import { initialStateFiltersType } from '../../store/filtersSlice';
 import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice';
 import Card from '../Card/Card';
@@ -15,24 +15,32 @@ const AllFilmsPage: React.FC = () =>{
   const filtres = useAppSelector(state => state.filters)
   const page = useAppSelector(state => state.allFilms.page);
   const dispatch = useAppDispatch()
+  const didMountFiltres = React.useRef(false);
+  const didMountPage= React.useRef(false);
+  const showMore = () => dispatch(nextPage())
 
-  const showMore = () => dispatch(addLimit())
-
-  const filtersInitial: initialStateFiltersType = {
-    year: `1960-2022`,
-    rating: '1-10',
-    sortByRelease: '-1',
-    genre: ''
-}
   
   useEffect(() => {
-
-    dispatch(getAllFilmsThunk(filtersInitial, 1))
-
+    if(films.length) return
+    dispatch(getAllFilmsThunk(filtres, 1))
+    dispatch(setPage(1))
     }, [])
 
-  useEffect(() => {
+    useEffect(() => {
+        if (!didMountFiltres.current) {
+            didMountFiltres.current = true;
+            return;
+          }
+        
+        dispatch(getAllFilmsThunk(filtres, 1))
+        dispatch(setPage(1))
+        }, [filtres])
 
+  useEffect(() => {
+    if (!didMountPage.current) {
+        didMountPage.current = true;
+        return;
+      }
     dispatch(getAllFilmsThunk(filtres, page))
 
     }, [filtres, page])

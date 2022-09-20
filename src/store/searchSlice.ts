@@ -15,7 +15,8 @@ const initialState: initialStateType ={
     resultSearchPage: [],
     resultSearchTotal: 0,
     currentPage: 1,
-    totalPages: null
+    totalPages: null,
+    
 }
 
 const search = createSlice({

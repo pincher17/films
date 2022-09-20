@@ -34,7 +34,7 @@ const SearchPage: React.FC = () =>{
 
     const showMore = () => setPage(page + 1)
 
-
+console.log(page)
     return (
     <Layout>
     <div className={s.wrapper}>

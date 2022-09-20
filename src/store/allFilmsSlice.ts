@@ -19,15 +19,21 @@ const allFilms = createSlice({
     reducers: {
         
         addFilms(state, action:PayloadAction<ArrayFilmsType>) {
-            state.films = action.payload
+            state.films = state.films.concat(action.payload);
         },
-        addLimit(state) {
-            state.page = state.page + 10;
+        clearFilms(state) {
+            state.films = [];
+        },
+        nextPage(state) {
+            state.page = state.page + 1
+        },
+        setPage(state, action:PayloadAction<number>) {
+            state.page = action.payload
         },
     },
 });
 
-export const {addFilms, addLimit} = allFilms.actions;
+export const {addFilms, nextPage, setPage, clearFilms} = allFilms.actions;
 
 
 export const getAllFilmsThunk = (filters: initialStateFiltersType, page: any) =>{
@@ -35,7 +41,7 @@ export const getAllFilmsThunk = (filters: initialStateFiltersType, page: any) =>
 
         //dispatch(setFetching(true))
         filmsApi.getFilms(filters, page).then((response: any) =>{
-            debugger;
+            
             dispatch(addFilms(response.data.docs))
             //dispatch(setFetching(false))
     })
