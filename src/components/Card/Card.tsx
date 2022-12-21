@@ -1,33 +1,32 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FilmsType } from '../../types/FilmsType';
-import s from './Card.module.css';
+import { Img, ImgWrapper, Rating, RatingNum, Wrapper, Year } from './Card.styles';
+import { CardProps } from './Card.types';
 
-type PropsType ={
-    cards: Array<FilmsType>
-}
 
-const Card: React.FC<PropsType> = (props) =>{
-
+const Card: React.FC<CardProps> = (props) =>{
     
+const {
+    id,
+    poster,
+    name,
+    year,
+    rating
+  } = props.card
+
     return (
-    <div className={s.wrapper_cards}>
-        {props.cards.map((i)=>
-         <div key={i.id} className={s.card}>
-            <NavLink to={'/film/' + i.id }>
-            <div className={s.img_wrapper}>
-            <img className={s.img} src={i.poster?.previewUrl} alt="" />
-            <div className={s.rating}>
-                <span className={s.rating_num}>{i.rating?.kp}</span>
-                </div>
-            <p className={s.name}>{i.name}</p>
-            <div className={s.year}>{i.year}</div>
-            </div>
+    <Wrapper key={id}>
+            <NavLink to={'/film/' + id }>
+            <ImgWrapper>
+            <Img src={poster?.previewUrl} alt="" />
+            <Rating>
+                <RatingNum>{rating?.kp}</RatingNum>
+            </Rating>
+            <p>{name}</p>
+            <Year>{year}</Year>
+            </ImgWrapper>
             </NavLink>
-         </div>
-        )}
-        
-    </div>
+    </Wrapper>
     )
 }
 

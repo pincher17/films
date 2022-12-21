@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import {  getFilmSearchPage, refreshResultSearchPage } from '../../store/searchSlice';
-import Card from '../Card/Card';
+import Cards from '../Cards/Cards';
 import Layout from '../layout/Layout';
 import s from './SearchPage.module.css';
 
@@ -45,7 +45,7 @@ console.log(page)
             </div>
             <div><p className={s.total_films}>{`Найдено: ${totalFilms}шт.`}</p></div>
         </div>
-    <Card cards={resultSearch} />
+    <Cards cards={resultSearch} />
     {totalPages === page ? <></> : <div className={s.wrapper_btn_show_more}><button onClick={showMore} className={s.btn}>Показать еще</button></div>}
     </div>
     </Layout>

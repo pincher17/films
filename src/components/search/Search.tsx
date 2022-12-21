@@ -17,8 +17,8 @@ const Search: React.FC = () => {
 
   useEffect(() => {
     
-    dispatch(getFilmSearch(text))
-  
+      dispatch(getFilmSearch(text))
+    
     }, [text]);
 
   const submitForm = () => {
