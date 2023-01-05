@@ -9,7 +9,7 @@ const instance = axios.create({
 
 export const filmsApi = {
     getNewFilms(limit){
-        return instance.get(`movie?field=rating.kp&search=1-10&field=year&search=2022&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${TOKEN}`).then(response =>{
+        return instance.get(`movie?field=rating.kp&search=6.5-10&field=year&search=2022&field=typeNumber&search=1&limit=${limit}&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=${TOKEN}`).then(response =>{
             return response;
         })
     },

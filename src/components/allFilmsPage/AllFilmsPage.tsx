@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { getAllFilmsThunk, nextPage, setPage } from '../../store/allFilmsSlice';
 import Cards from '../Cards';
+import Filters from '../Filters';
 import Layout from '../layout/Layout';
 import s from './AllFilmsPage.module.css';
 
@@ -19,16 +20,18 @@ const AllFilmsPage: React.FC = () =>{
   
   useEffect(() => {
     if(films.length) return
+    console.log('1')
     dispatch(getAllFilmsThunk(filtres, 1))
     dispatch(setPage(1))
     }, [])
 
     useEffect(() => {
+      console.log('2')
         if (!didMountFiltres.current) {
             didMountFiltres.current = true;
             return;
           }
-        
+          
         dispatch(getAllFilmsThunk(filtres, 1))
         dispatch(setPage(1))
         }, [filtres])
@@ -38,6 +41,7 @@ const AllFilmsPage: React.FC = () =>{
         didMountPage.current = true;
         return;
       }
+      console.log('3')
     dispatch(getAllFilmsThunk(filtres, page))
 
     }, [filtres, page])
@@ -51,6 +55,7 @@ const AllFilmsPage: React.FC = () =>{
           <p className={s.name_block}>Все фильмы</p>
         </div>
       </div>
+      <Filters />
       <Cards cards={films} />
       <div className={s.wrapper_btn_show_more}>
         <button onClick={showMore} className={s.btn}>Показать еще</button>
