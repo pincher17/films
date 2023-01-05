@@ -10,6 +10,7 @@ export const Title = styled.div`
 
 export const WrapperInputs = styled.div`
  display: flex;
+ margin-bottom: 12px;
  & > :first-child{
   margin-right: 30px;
  }

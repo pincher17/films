@@ -1,7 +1,8 @@
 import { Box, createTheme, Slider, ThemeProvider } from '@mui/material';
 import React from 'react';
 import Input from '../Input';
-import { Title, Wrapper, WrapperInputs } from './SliderRating.styles';
+import { Title, Wrapper, WrapperInputs } from './SliderValue.styles';
+import { SliderValueProps } from './SliderValue.types';
 
 const theme = createTheme({
     palette: {
@@ -11,17 +12,31 @@ const theme = createTheme({
     },
   });
 
-const SliderRating: React.FC = (props) =>{
-    
-  const [value, setValue] = React.useState<number[]>([6, 10]);
-/* console.log(value[0]) */
+const SliderValue: React.FC<SliderValueProps> = (props) =>{
+
+  const {
+    defaulFirstValue,
+    defaulSecondValue,
+    integer,
+    max,
+    min,
+    step,
+    title
+  } = props
+ 
+  const [value, setValue] = React.useState<number[]>([defaulFirstValue, defaulSecondValue]);
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
   };
 
   const ChangeInputFirst = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let newValue = e.target.value.replace(',', '.')
-    if(+newValue <= 10){
+    let newValue
+    if(integer){
+      newValue = parseInt(e.target.value)
+    }else{
+      newValue = e.target.value
+    }
+    if(+newValue <= max){
       let newArrValue = [newValue, value[1]]
       setValue(newArrValue as number[])
     }else{
@@ -30,8 +45,13 @@ const SliderRating: React.FC = (props) =>{
   }
 
   const ChangeInputSecond = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let newValue = e.target.value.replace(',', '.')
-    if(+newValue <= 10){
+    let newValue
+    if(integer){
+      newValue = parseInt(e.target.value)
+    }else{
+      newValue = e.target.value
+    }
+    if(+newValue <= max){
       let newArrValue = [value[0], newValue]
       setValue(newArrValue as number[])
     }else{
@@ -41,15 +61,15 @@ const SliderRating: React.FC = (props) =>{
 
     return (
     <Wrapper>
-    <Title>Рейтинг</Title>
+    <Title>{title}</Title>
     <WrapperInputs>
-        <Input 
-          id='firstValue'
-          name=''
-          onChange={ChangeInputFirst} 
-          type='number'
-          value={value[0]}
-        />
+      <Input 
+        id='firstValue'
+        name=''
+        onChange={ChangeInputFirst} 
+        type='number'
+        value={value[0]}
+      />
       <Input 
         id='secondValue'
         name=''
@@ -65,9 +85,9 @@ const SliderRating: React.FC = (props) =>{
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
-        step={0.1}
-        min={1}
-        max={10}
+        step={step}
+        min={min}
+        max={max}
         color="secondary"
       />
     </Box>
@@ -76,4 +96,4 @@ const SliderRating: React.FC = (props) =>{
     )
 }
 
-export default SliderRating;
+export default SliderValue;
