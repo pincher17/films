@@ -43,7 +43,6 @@ const SliderRating: React.FC = (props) =>{
     <Wrapper>
     <Title>Рейтинг</Title>
     <WrapperInputs>
-      <div>
         <Input 
           id='firstValue'
           name=''
@@ -51,7 +50,6 @@ const SliderRating: React.FC = (props) =>{
           type='number'
           value={value[0]}
         />
-      </div>
       <Input 
         id='secondValue'
         name=''

@@ -11,12 +11,9 @@ const Input: React.FC<InputProps> = (props) => {
     placeholder,
     value,
     onChange,
-    onBlur,
-    onFocus,
-    error,
   } = props
   return (
-    <InputWrapper error={error} type={type}>
+    <InputWrapper>
       <label htmlFor={id}>{label}</label>
         <input
           id={id}
@@ -25,8 +22,6 @@ const Input: React.FC<InputProps> = (props) => {
           value={value}
           placeholder={placeholder}
           onChange={onChange}
-          onBlur={onBlur}
-          onFocus={onFocus}
         />
     </InputWrapper>
   )

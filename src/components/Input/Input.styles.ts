@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import { StyledInputProps, StyledTooltipProps } from './Input.types'
-
-export const InputWrapper = styled.div<StyledInputProps>`
+export const InputWrapper = styled.div`
   position: relative;
   & > label {
     font-style: normal;
@@ -51,50 +49,5 @@ export const InputWrapper = styled.div<StyledInputProps>`
     top: 57px;
     color: #21bdcb;
   }
-  & > p {
-    color: ${(props) => props.error && '#FF3232'};
-  }
 `
 
-export const Tooltip = styled.div<StyledTooltipProps>`
-  display: ${(props) => !props.tooltip && 'none'};
-  width: 280px;
-  background-color: #fff;
-  position: absolute;
-  left: 105%;
-  top: -14px;
-  padding: 20px;
-  border: 1px solid #21bdcb;
-  border-radius: 8px;
-  box-shadow: 0px 4px 40px rgba(33, 189, 203, 0.1);
-  font-weight: 300;
-  line-height: 30px;
-  @media screen and (max-width: 990px) {
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, -100%);
-  }
-  &::before,
-  &::after {
-    content: ' ';
-    position: absolute;
-    top: 40%;
-    left: -31px;
-    border-width: 15px;
-    border-style: solid;
-    border-color: transparent #21bdcb transparent transparent;
-    @media screen and (max-width: 990px) {
-      left: 50%;
-      top: 100%;
-      transform: translateX(-50%) rotate(-90deg);
-    }
-  }
-  &::after {
-    left: -30px;
-    border-color: transparent #fff transparent transparent;
-    @media screen and (max-width: 990px) {
-      left: 50%;
-      top: calc(100% - 1px);
-    }
-  }
-`
