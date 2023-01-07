@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Search from '../search/Search';
 import s from './Header.module.css';
-import logo from './FILMS.png'
+import logo from '../../assets/img/logo1.svg'
 
 const Header: React.FC = () =>{
 
@@ -10,7 +10,9 @@ const Header: React.FC = () =>{
         <header className={s.header}>
         <div className={s.header_wrapper}>
         {/* <NavLink to={'/'} className={s.logo}>FILMS</NavLink> */}
-        <NavLink to={'/'} className={s.logo}><img className={s.logo} src={logo} alt='logo'></img></NavLink>
+        <NavLink to={'/'} className={s.logo}>
+          <img className={s.logo} src={logo} alt='logo'/>
+        </NavLink>
         <Search />
         <nav className={s.nav}>
         <NavLink to={'/films'} className={s.nav_item}>Фильмы</NavLink>
