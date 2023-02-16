@@ -1,4 +1,6 @@
 import React from 'react';
+import { allGenres } from '../../data/allGenres';
+import MultipleSelect from '../MultipleSelect';
 import SliderValue from '../SliderValue';
 import { Wrapper } from './Filters.styles';
 
@@ -27,6 +29,7 @@ const Filters: React.FC = (props) =>{
             defaulFirstValue={1990}
             defaulSecondValue={2023}
          />
+        <MultipleSelect options={allGenres} />
     </Wrapper>
     )
 }

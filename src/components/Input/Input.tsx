@@ -11,7 +11,12 @@ const Input: React.FC<InputProps> = (props) => {
     placeholder,
     value,
     onChange,
+    readOnly,
+    children,
   } = props
+
+
+
   return (
     <InputWrapper>
       <label htmlFor={id}>{label}</label>
@@ -22,7 +27,9 @@ const Input: React.FC<InputProps> = (props) => {
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          readOnly={readOnly}
         />
+        {children}
     </InputWrapper>
   )
 }

@@ -17,7 +17,6 @@ export const InputWrapper = styled.div`
     border-radius: 5px;
     height: 33px;
     border: 1px solid rgb(52 52 52);
-    font-family: Oswald;
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
