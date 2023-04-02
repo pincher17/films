@@ -21,6 +21,9 @@ const allFilms = createSlice({
         addFilms(state, action:PayloadAction<ArrayFilmsType>) {
             state.films = state.films.concat(action.payload);
         },
+        addFilmsNewFilters(state, action:PayloadAction<ArrayFilmsType>) {
+            state.films = action.payload;
+        },
         clearFilms(state) {
             state.films = [];
         },
@@ -33,7 +36,7 @@ const allFilms = createSlice({
     },
 });
 
-export const {addFilms, nextPage, setPage, clearFilms} = allFilms.actions;
+export const {addFilms, nextPage, setPage, clearFilms, addFilmsNewFilters} = allFilms.actions;
 
 
 export const getAllFilmsThunk = (filters: initialStateFiltersType, page: any) =>{
@@ -48,5 +51,16 @@ export const getAllFilmsThunk = (filters: initialStateFiltersType, page: any) =>
     }
 }
 
+export const getAllFilmsFiltersThunk = (filters: initialStateFiltersType, page: any) =>{
+    return (dispatch: any) => {
+
+        //dispatch(setFetching(true))
+        filmsApi.getFilms(filters, page).then((response: any) =>{
+            
+            dispatch(addFilmsNewFilters(response.data.docs))
+            //dispatch(setFetching(false))
+    })
+    }
+}
 
 export default allFilms.reducer;

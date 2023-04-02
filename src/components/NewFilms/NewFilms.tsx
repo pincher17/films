@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice';
+import Button from '../Button';
 import Cards from '../Cards/Cards';
 import s from './NewFilms.module.css';
 
@@ -33,7 +34,9 @@ const NewFilms: React.FC = () =>{
                 </div>
         </div>
     <Cards cards={films} />
-    <div className={s.wrapper_btn_show_more}><button onClick={showMore} className={s.btn}>Показать еще</button></div>
+    <div className={s.wrapper_btn_show_more}>
+        <Button onClick={showMore}>Показать еще</Button>
+    </div>
     </div>
     )
 }

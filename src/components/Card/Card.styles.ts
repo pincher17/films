@@ -12,6 +12,7 @@ export const Img = styled.img`
   width: 222px;
   height: 333px;
   border-radius: 12px;
+  background-color: #2d2d2d;;
 `
 
 export const Rating = styled.div`
