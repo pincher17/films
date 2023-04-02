@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hook';
-import { getAllFilmsThunk, nextPage, setPage } from '../../store/allFilmsSlice';
+import { getAllFilmsFiltersThunk, getAllFilmsThunk, nextPage, setPage } from '../../store/allFilmsSlice';
 import Cards from '../Cards';
 import Filters from '../Filters';
 import Layout from '../layout/Layout';
@@ -17,7 +17,7 @@ const AllFilmsPage: React.FC = () =>{
   const didMountPage= React.useRef(false);
   const showMore = () => dispatch(nextPage())
 
-  
+  console.log(films)
   useEffect(() => {
     if(films.length) return
     console.log('1')
@@ -26,13 +26,13 @@ const AllFilmsPage: React.FC = () =>{
     }, [])
 
     useEffect(() => {
-      console.log('2')
+      
         if (!didMountFiltres.current) {
             didMountFiltres.current = true;
             return;
           }
-          
-        dispatch(getAllFilmsThunk(filtres, 1))
+          console.log('getAllFilmsFiltersThunk')
+        dispatch(getAllFilmsFiltersThunk(filtres, 1))
         dispatch(setPage(1))
         }, [filtres])
 
@@ -42,9 +42,10 @@ const AllFilmsPage: React.FC = () =>{
         return;
       }
       console.log('3')
+      if(page === 1) return
     dispatch(getAllFilmsThunk(filtres, page))
 
-    }, [filtres, page])
+    }, [page])
 
   
     return (

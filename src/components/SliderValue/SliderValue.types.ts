@@ -7,5 +7,6 @@ export interface SliderValueProps {
     integer: boolean
     defaulFirstValue: number
     defaulSecondValue: number
+    onChangeValue: (e: any) => void
 }
 

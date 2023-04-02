@@ -21,12 +21,14 @@ const SliderValue: React.FC<SliderValueProps> = (props) =>{
     max,
     min,
     step,
-    title
+    title,
+    onChangeValue,
   } = props
  
   const [value, setValue] = React.useState<number[]>([defaulFirstValue, defaulSecondValue]);
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
+    onChangeValue(newValue as number[]);
   };
 
   const ChangeInputFirst = (e: React.ChangeEvent<HTMLInputElement>) => {
