@@ -19,9 +19,10 @@ const {
             <NavLink to={'/film/' + id }>
             <ImgWrapper>
             <Img src={poster?.previewUrl} alt="" />
+            {rating?.kp &&
             <Rating>
                 <RatingNum>{rating?.kp}</RatingNum>
-            </Rating>
+            </Rating>}
             <p>{name}</p>
             <Year>{year}</Year>
             </ImgWrapper>
