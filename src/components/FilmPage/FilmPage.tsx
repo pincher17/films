@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { getFilmById } from '../../store/filmInfoSlice';
 import LayoutFilm from '../layoutFilm/LayoutFilm';
+import SwiperFilms from '../SwiperFilms/SwiperFilms';
 import s from './FilmPage.module.css';
 
 const FilmPage: React.FC = (props) =>{
@@ -111,7 +112,8 @@ let link = getYouTubeId(videos) */
           
           <div className={s.title_description}>Описание:</div>
           <p className={s.description}>{filmInfoId?.description}</p>
-          
+
+          {filmInfoId?.similarMovies.length ? <><div className={s.title_description}>Похожие</div><SwiperFilms cards={filmInfoId?.similarMovies} /></> : ''}
           </LayoutFilm>
             
         </div>
