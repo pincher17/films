@@ -15,9 +15,7 @@ const Header: React.FC = () =>{
         </NavLink>
         <Search />
         <nav className={s.nav}>
-        <NavLink to={'/films'} className={s.nav_item}>Фильмы</NavLink>
-        <NavLink to={'/'} className={s.nav_item}>Сериалы</NavLink>
-        <NavLink to={'/'} className={s.nav_item}>Cохраненное</NavLink>
+        <NavLink to={'/films'} className={s.nav_item}>Все фильмы</NavLink>
         </nav>
         </div>
       </header>
