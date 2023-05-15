@@ -75,6 +75,23 @@ nav a:focus:after {
 
 @media (max-width: 1150px){
   .header_wrapper{
-    width: 800px;
+    width: 774px;
+  }
+}
+
+@media (max-width: 850px){
+  .nav{
+ display: none;
+  }
+  .logo{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header_wrapper{
+    width: auto;
+  }
+  .header{
+    backdrop-filter: blur(10px);
+    background: rgb(21 21 21 / 91%);
   }
 }

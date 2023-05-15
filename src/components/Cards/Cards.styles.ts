@@ -19,9 +19,21 @@ export const Wrapper = styled.div`
   }
 
   @media (max-width: 1150px){
-    -webkit-column-gap: 54px;
+   /*  -webkit-column-gap: 54px;
     -moz-column-gap: 54px;
-    grid-column-gap: 54px;
+    grid-column-gap: 54px; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+  }
+
+  @media (max-width: 738px){
+   /*  -webkit-column-gap: 54px;
+    -moz-column-gap: 54px;
+    grid-column-gap: 54px; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
   }
 
   @media (min-width: 1500px){

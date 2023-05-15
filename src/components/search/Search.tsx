@@ -4,6 +4,8 @@ import { getFilmSearch } from "../../store/searchSlice";
 import SearchIcon from "@mui/icons-material/Search";
 import s from "./SearchInput.module.css";
 import { useAppDispatch, useAppSelector } from "../../hook";
+import { ButtonSearch, Image, ImageWrapper, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
+import { Year } from "../Card";
 
 const Search: React.FC = () => {
   const [text, setText] = useState("");
@@ -43,9 +45,8 @@ const Search: React.FC = () => {
   };
 
   return (
-    <div className={s.search}>
-      <input
-        className={s.search_input}
+    <SearchWrapper>
+      <SearchInput
         placeholder="Поиск"
         type="search"
         onChange={(e) => setText(e.target.value)}
@@ -53,45 +54,44 @@ const Search: React.FC = () => {
         onBlur={() => setSearchList(false)}
         onKeyPress={onKeyPressHandler}
         ref={inputRef}
-      ></input>
+      ></SearchInput>
 
       {searchList && (
-        <div className={s.search_list}>
+        <SearchList>
           {resultSearch.map((i) => (
-            <div key={i.id} className={s.card}>
+            <div key={i.id}>
               <div
                 onMouseDown={() =>
                   navigate("../film/" + i.id, { replace: true })
                 }
               >
-                <div className={s.img_wrapper}>
-                  <img
-                    className={s.img}
+                <ImageWrapper>
+                  <Image
                     src={i.poster?.previewUrl}
                     alt="poster"
                   />
 
-                  <div className={s.rating}>
-                    <div className={s.name}>{i.name}</div>
-                    <div className={s.year}>
+                  <div>
+                    <Name>{i.name}</Name>
+                    <Year className={s.year}>
                       {i.year}, {i.movieLength}мин
-                    </div>
-                    <div className={s.rating_num}>{i.rating.kp}</div>
+                    </Year>
+                    <RatingNumer className={s.rating_num}>{i.rating.kp}</RatingNumer>
                   </div>
-                </div>
+                </ImageWrapper>
               </div>
             </div>
           ))}
-        </div>
+        </SearchList>
       )}
-      <div className={s.wrapper_btn_search}>
+      <div>
         {/* <NavLink to={'/search'} > */}
-        <div onClick={submitForm} className={s.btn_search}>
+        <ButtonSearch onClick={submitForm}>
           <SearchIcon sx={{ fontSize: 28 }} />
-        </div>
+        </ButtonSearch>
         {/* </NavLink> */}
       </div>
-    </div>
+    </SearchWrapper>
   );
 };
 

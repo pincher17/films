@@ -3,8 +3,9 @@ import { useAppDispatch, useAppSelector } from '../../hook';
 import { getAllFilmsFiltersThunk, getAllFilmsThunk, nextPage, setPage } from '../../store/allFilmsSlice';
 import Cards from '../Cards';
 import Filters from '../Filters';
-import Layout from '../layout/Layout';
-import s from './AllFilmsPage.module.css';
+import Filtericon from '../../assets/icons/Filtericon.svg'
+import { MainTag } from '../Main/Main.styles';
+import { Button, FilterIcon, NameBlock, Wrapper, WrapperButtonShowMore, WrapperNameBlock } from './AllFilmsPage.styles';
 
 
 const AllFilmsPage: React.FC = () =>{
@@ -49,20 +50,23 @@ const AllFilmsPage: React.FC = () =>{
 
   
     return (
-    <Layout>
-    <div className={s.wrapper}>
-      <div className={s.wrapper_name_block}>
+    <MainTag>
+    <Wrapper>
+      <WrapperNameBlock>
         <div>
-          <p className={s.name_block}>Все фильмы</p>
+          <NameBlock>Все фильмы</NameBlock>
         </div>
-      </div>
+        <div>
+        <FilterIcon url={Filtericon} />
+        </div>
+      </WrapperNameBlock>
       <Filters />
       <Cards cards={films} />
-      <div className={s.wrapper_btn_show_more}>
-        <button onClick={showMore} className={s.btn}>Показать еще</button>
-      </div>
-    </div>
-    </Layout>
+      <WrapperButtonShowMore>
+        <Button onClick={showMore}>Показать еще</Button>
+      </WrapperButtonShowMore>
+    </Wrapper>
+    </MainTag>
     )
 }
 

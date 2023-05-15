@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
  margin-bottom: 50px;
+ @media (max-width: 1150px){
+   display: none;
+  }
 `
 export const WrapperInput = styled.div`
   padding-bottom: 55px;

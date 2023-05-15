@@ -7,6 +7,7 @@ import FilmPage from './components/FilmPage/FilmPage';
 import SearchPage from './components/searchPage/SearchPage';
 import AllFilmsPage from './components/allFilmsPage/AllFilmsPage';
 import Test from './Containers/Test/Test';
+import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/search/:searchQuery' element={<SearchPage />}/>
         <Route path='/films' element={<AllFilmsPage />}/>
       </Routes>
+      <MobileNavigation />
     </BrowserRouter>
   );
 }
