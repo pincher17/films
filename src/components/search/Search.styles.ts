@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { SearchWrapperProps } from "./Search.types";
 
-export const SearchWrapper = styled.div`
+export const SearchWrapper = styled.div<SearchWrapperProps>`
+  position: relative;
   width: 600px;
   height: 35px;
   display: flex;
@@ -8,7 +10,12 @@ export const SearchWrapper = styled.div`
     width: 460px;
   }
   @media (max-width: 850px){
-    display: none;
+    display: ${(props) => (props.active ? 'block' : 'none')};
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 51px;
   }
 `;
 export const SearchInput = styled.input`
@@ -39,6 +46,9 @@ export const SearchInput = styled.input`
   }
 `;
 export const ButtonSearch = styled.div`
+ @media (max-width: 850px){
+    display: none;
+  }
     width: 50px;
     background-color: rgb(52 52 52);
     height: 100%;
@@ -51,7 +61,14 @@ export const ButtonSearch = styled.div`
     border-radius: 0 5px 5px 0;
 `;
 export const SearchList = styled.div`
- width: 545px;
+@media (max-width: 850px){
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    top: 70px;
+    height: 90vh;
+  }
+  width: calc(100% - 50px);
     top: 95%;
     height: 500px;
     background-color: rgb(36,36,36);
@@ -92,4 +109,18 @@ export const Year = styled.div`
 export const RatingNumer = styled.div`
     font-weight: bold;
     color: rgb(59,179,59);
+`;
+
+export const AllBlur = styled.div<SearchWrapperProps>`
+  display: ${(props) => (props.active ? 'block' : 'none')};
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 120vw;
+  height: 120vh;
+  background-color: rgb(0 0 0 / 80%);
+  -webkit-backdrop-filter: blur(35px);
+  backdrop-filter: blur(35px);
+  background: rgb(21 21 21 / 83%);
 `;

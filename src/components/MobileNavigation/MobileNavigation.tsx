@@ -1,32 +1,34 @@
 import React, { useState } from 'react';
-import { AllFilmsIcon, HomeIcon, NavigationContainer, NavigationItem, SearchIcon } from './MobileNavigation.styles';
+import { AllBlur, AllFilmsIcon, HomeIcon, NavigationContainer, NavigationItem, SearchIcon, StyledLink } from './MobileNavigation.styles';
+import { Link, useLocation } from 'react-router-dom';
+import Search from '../search/Search';
+import { useAppDispatch, useAppSelector } from '../../hook';
+import { setMobileSearch } from '../../store/searchSlice';
 
 const MobileNavigation = () => {
-  const [activeTab, setActiveTab] = useState('home');
+  const location = useLocation();
+  const mobileSearch = useAppSelector(state => state.search.mobileSearch);
+  const dispatch = useAppDispatch()
 
-  const handleTabClick = (tab: any) => {
-    setActiveTab(tab);
-  };
+  const switchMobileSearch = (value: boolean) => dispatch(setMobileSearch(value))
 
   return (
     <NavigationContainer>
-      <NavigationItem
-        active={activeTab === 'home'}
-        onClick={() => handleTabClick('home')}
-      >
-        <HomeIcon />
+      <NavigationItem active={location.pathname === '/'}>
+        <StyledLink to="/">
+        <HomeIcon active={location.pathname === '/'} />
         <span>Главная</span>
+        </StyledLink>
       </NavigationItem>
-      <NavigationItem
-        active={activeTab === 'movies'}
-        onClick={() => handleTabClick('movies')}
-      >
-        <AllFilmsIcon />
+      <NavigationItem active={location.pathname === '/films'}>
+        <StyledLink to="/films">
+        <AllFilmsIcon active={location.pathname === '/films'} />
         <span>Все фильмы</span>
+        </StyledLink>
       </NavigationItem>
       <NavigationItem
-        active={activeTab === 'search'}
-        onClick={() => handleTabClick('search')}
+        active={mobileSearch}
+        onClick={() => switchMobileSearch(true)}
       >
         <SearchIcon />
         <span>Поиск</span>

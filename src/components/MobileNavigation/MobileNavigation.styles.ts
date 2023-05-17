@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import { NavigationItemProps } from './MobileNavigation.types';
 import { ReactComponent as Homeicon } from '../../assets/icons/home.svg'
+import { ReactComponent as HomeiconActive } from '../../assets/icons/homeActive.svg'
 import { ReactComponent as Searchicon } from '../../assets/icons/search.svg'
 import { ReactComponent as Allfilmsicon } from '../../assets/icons/AllFilmsIcon.svg'
+import { Link } from 'react-router-dom';
 
 export const NavigationItem = styled.div<NavigationItemProps>`
   display: flex;
@@ -17,6 +19,7 @@ export const NavigationItem = styled.div<NavigationItemProps>`
   span {
     font-size: 14px;
     font-weight: 600;
+    color: ${(props) => (props.active ? '#fff' : '#b3b3b3')};
   }
 
   &:hover {
@@ -39,10 +42,12 @@ export const NavigationContainer = styled.div`
   background: rgb(21 21 21 / 83%);
 `;
 
-export const HomeIcon = styled(Homeicon)`
+export const HomeIcon = styled(Homeicon)<NavigationItemProps>`
   width: 30px;
   height: 30px;
   margin-bottom: 5px;
+  stroke: ${(props) => (props.active ? '#fff' : '#b3b3b3')};
+  fill: none;
 `
 
 export const SearchIcon = styled(Searchicon)`
@@ -50,8 +55,27 @@ export const SearchIcon = styled(Searchicon)`
   height: 30px;
   margin-bottom: 5px;
 `
-export const AllFilmsIcon = styled(Allfilmsicon)`
+export const AllFilmsIcon = styled(Allfilmsicon)<NavigationItemProps>`
   width: 30px;
   height: 30px;
   margin-bottom: 5px;
+  stroke: ${(props) => (props.active ? '#fff' : '#b3b3b3')};
+  stroke-width: 0.5px;
 `
+export const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+`;
+
+export const AllBlur = styled.div`
+  position: fixed;
+  z-index: 5;
+  top: -100vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 80%);
+`;

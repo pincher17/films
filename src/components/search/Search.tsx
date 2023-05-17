@@ -4,7 +4,7 @@ import { getFilmSearch } from "../../store/searchSlice";
 import SearchIcon from "@mui/icons-material/Search";
 import s from "./SearchInput.module.css";
 import { useAppDispatch, useAppSelector } from "../../hook";
-import { ButtonSearch, Image, ImageWrapper, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
+import { AllBlur, ButtonSearch, Image, ImageWrapper, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
 import { Year } from "../Card";
 
 const Search: React.FC = () => {
@@ -12,6 +12,7 @@ const Search: React.FC = () => {
   const [searchList, setSearchList] = useState(false);
   const dispatch = useAppDispatch();
   const resultSearch = useAppSelector((state) => state.search.resultSearch);
+  const mobileSearch = useAppSelector((state) => state.search.mobileSearch);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -45,7 +46,7 @@ const Search: React.FC = () => {
   };
 
   return (
-    <SearchWrapper>
+    <SearchWrapper active={mobileSearch}>
       <SearchInput
         placeholder="Поиск"
         type="search"

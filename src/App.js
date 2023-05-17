@@ -8,10 +8,12 @@ import SearchPage from './components/searchPage/SearchPage';
 import AllFilmsPage from './components/allFilmsPage/AllFilmsPage';
 import Test from './Containers/Test/Test';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
+import AllBlur from './components/AllBlur/AllBlur';
 
 function App() {
   return (
     <BrowserRouter>
+    <AllBlur />
       <Header />
       <Routes>
         <Route path='/' element={<Main />}/>
