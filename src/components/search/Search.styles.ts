@@ -66,6 +66,7 @@ export const CrossIcon = styled.div`
   height: 44px;
   position: relative;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 export const Line1 = styled.div`

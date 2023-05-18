@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getFilmSearch } from "../../store/searchSlice";
+import { getFilmSearch, setMobileSearch } from "../../store/searchSlice";
 import SearchIcon from "@mui/icons-material/Search";
 import s from "./SearchInput.module.css";
 import { useAppDispatch, useAppSelector } from "../../hook";
@@ -38,12 +38,22 @@ const Search: React.FC = () => {
     navigate(`/search/${text}`);
   };
 
+  const closeSearch = () => {
+    dispatch(setMobileSearch(false))
+  };
+
   const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       navigate(`/search/${text}`);
       inputRef.current?.blur();
     }
   };
+
+  useEffect(() => {
+    if (mobileSearch) {
+      inputRef.current?.focus();
+    }
+  }, [mobileSearch]);
 
   return (
     <SearchWrapper active={mobileSearch}>
@@ -90,7 +100,7 @@ const Search: React.FC = () => {
         <ButtonSearch onClick={submitForm}>
           <SearchIcon sx={{ fontSize: 28 }} />
         </ButtonSearch>
-        <CrossIcon>
+        <CrossIcon onClick={closeSearch}>
           <Line1 />
           <Line2 />
         </CrossIcon>
