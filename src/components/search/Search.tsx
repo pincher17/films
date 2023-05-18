@@ -4,7 +4,7 @@ import { getFilmSearch } from "../../store/searchSlice";
 import SearchIcon from "@mui/icons-material/Search";
 import s from "./SearchInput.module.css";
 import { useAppDispatch, useAppSelector } from "../../hook";
-import { AllBlur, ButtonSearch, Image, ImageWrapper, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
+import { AllBlur, ButtonSearch, CrossIcon, Image, ImageWrapper, Line1, Line2, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
 import { Year } from "../Card";
 
 const Search: React.FC = () => {
@@ -90,6 +90,10 @@ const Search: React.FC = () => {
         <ButtonSearch onClick={submitForm}>
           <SearchIcon sx={{ fontSize: 28 }} />
         </ButtonSearch>
+        <CrossIcon>
+          <Line1 />
+          <Line2 />
+        </CrossIcon>
         {/* </NavLink> */}
       </div>
     </SearchWrapper>

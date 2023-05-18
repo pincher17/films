@@ -10,12 +10,13 @@ export const SearchWrapper = styled.div<SearchWrapperProps>`
     width: 460px;
   }
   @media (max-width: 850px){
-    display: ${(props) => (props.active ? 'block' : 'none')};
+    display: ${(props) => (props.active ? 'flex' : 'none')};
     position: absolute;
     top: 65px;
     left: 50%;
     transform: translate(-50%, 0);
     height: 51px;
+    align-items: center;
   }
 `;
 export const SearchInput = styled.input`
@@ -60,6 +61,35 @@ export const ButtonSearch = styled.div`
     cursor: pointer;
     border-radius: 0 5px 5px 0;
 `;
+export const CrossIcon = styled.div`
+  width: 25px;
+  height: 44px;
+  position: relative;
+  margin-left: 20px;
+`;
+
+export const Line1 = styled.div`
+  height: 100%;
+  width: 3px;
+  margin-left: 12px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  z-index: 1;
+`;
+
+export const Line2 = styled.div`
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform: rotate(135deg);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 50%;
+`;
+
+
+
 export const SearchList = styled.div`
 @media (max-width: 850px){
     width: 100%;
@@ -117,8 +147,8 @@ export const AllBlur = styled.div<SearchWrapperProps>`
   z-index: 5;
   top: 0;
   left: 0;
-  width: 120vw;
-  height: 120vh;
+  width: 145vw;
+  height: 145vh;
   background-color: rgb(0 0 0 / 80%);
   -webkit-backdrop-filter: blur(35px);
   backdrop-filter: blur(35px);
