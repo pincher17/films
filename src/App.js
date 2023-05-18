@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
@@ -9,6 +9,9 @@ import AllFilmsPage from './components/allFilmsPage/AllFilmsPage';
 import Test from './Containers/Test/Test';
 
 function App() {
+  useEffect(() => {
+    alert('сайт не будет работать до 00:01 19.05.2023')
+   }, []);
   return (
     <BrowserRouter>
       <Header />
