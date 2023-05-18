@@ -10,7 +10,7 @@ import Test from './Containers/Test/Test';
 
 function App() {
   useEffect(() => {
-    alert('сайт не будет работать до 00:01 19.05.2023')
+    alert('Сайт начнет снова работать днем 19.05.2023')
    }, []);
   return (
     <BrowserRouter>
