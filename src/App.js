@@ -9,9 +9,7 @@ import AllFilmsPage from './components/allFilmsPage/AllFilmsPage';
 import Test from './Containers/Test/Test';
 
 function App() {
-  useEffect(() => {
-    alert('Сайт не будет работать до вечера 19.05.2023')
-   }, []);
+  
   return (
     <BrowserRouter>
       <Header />
