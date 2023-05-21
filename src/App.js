@@ -23,7 +23,7 @@ function App() {
         <Route path='/films' element={<AllFilmsPage />}/>
       </Routes>
       <MobileNavigation />
-    </BrowserRouter>
+  </BrowserRouter>
   );
 }
 

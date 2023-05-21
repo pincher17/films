@@ -7,10 +7,11 @@ import CheckBox from '../CheckBox';
 import MultipleSelect from '../MultipleSelect';
 import SliderValue from '../SliderValue';
 import { ButtonWrapper, Wrapper, WrapperAllInputs, WrapperCheckbox, WrapperInput } from './Filters.styles';
+import { FiltersProps } from './Filters.types';
 
 
 
-const Filters: React.FC = (props) =>{
+const Filters: React.FC<FiltersProps> = ({mobile}) =>{
 
     const filters = useAppSelector(state => state.filters);
     const dispatch = useAppDispatch()
@@ -69,7 +70,7 @@ const Filters: React.FC = (props) =>{
       };
     
     return (
-    <Wrapper>
+    <Wrapper mobile={mobile}>
         <WrapperAllInputs>
         <WrapperCheckbox>
         {typeOfMovies.map((item, index) => (

@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 
 export interface SidebarContainerProps {
     isOpen: boolean
@@ -6,5 +7,6 @@ export interface SidebarContainerProps {
 export interface SidebarProps {
     isOpenSidebar: boolean
     toggleSidebar: () => void
+    children: ReactNode
 }
 

@@ -7,6 +7,7 @@ import Filtericon from '../../assets/icons/Filtericon.svg'
 import { MainTag } from '../Main/Main.styles';
 import { Button, FilterIcon, NameBlock, Wrapper, WrapperButtonShowMore, WrapperNameBlock } from './AllFilmsPage.styles';
 import Sidebar from '../Sidebar/Sidebar';
+import { CrossIcon, Line1, Line2 } from '../search/Search.styles';
 
 
 const AllFilmsPage: React.FC = () =>{
@@ -66,7 +67,13 @@ const AllFilmsPage: React.FC = () =>{
         </div>
       </WrapperNameBlock>
       <Filters />
-      <Sidebar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar} />
+      <Sidebar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar}>
+      <CrossIcon sidebar={true} onClick={toggleSidebar}>
+          <Line1 />
+          <Line2 />
+        </CrossIcon>
+      <Filters mobile={true} />
+      </Sidebar>
       <Cards cards={films} />
       <WrapperButtonShowMore>
         <Button onClick={showMore}>Показать еще</Button>

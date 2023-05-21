@@ -3,17 +3,14 @@ import { SidebarButton, SidebarContainer, SidebarContent } from "./Sidebar.style
 import { SidebarProps } from "./Sidebar.types";
 
 
-const Sidebar: React.FC<SidebarProps> = ({isOpenSidebar, toggleSidebar}) => {
+const Sidebar: React.FC<SidebarProps> = ({isOpenSidebar, toggleSidebar, children}) => {
 
 
   return (
     <>
-    <SidebarButton onClick={toggleSidebar}>Toggle Sidebar</SidebarButton>
     <SidebarContainer isOpen={isOpenSidebar}>
       <SidebarContent>
-        <h1>Sidebar Content</h1>
-        <p>This is the sidebar menu.</p>
-        <SidebarButton onClick={toggleSidebar}>Close</SidebarButton>
+        {children}
       </SidebarContent>
     </SidebarContainer>
   </>

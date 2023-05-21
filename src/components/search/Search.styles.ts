@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SearchWrapperProps } from "./Search.types";
+import { CrossIconProps, SearchWrapperProps } from "./Search.types";
 
 export const SearchWrapper = styled.div<SearchWrapperProps>`
   position: relative;
@@ -61,12 +61,19 @@ export const ButtonSearch = styled.div`
     cursor: pointer;
     border-radius: 0 5px 5px 0;
 `;
-export const CrossIcon = styled.div`
+export const CrossIcon = styled.div<CrossIconProps>`
   width: 25px;
   height: 44px;
   position: relative;
   margin-left: 20px;
   cursor: pointer;
+  ${(props) => (props.sidebar ? 
+   `margin-left: 0;
+    cursor: pointer;
+    right: 47px;
+    top: 26px;
+    position: absolute;` 
+    : 'none')};
 `;
 
 export const Line1 = styled.div`
