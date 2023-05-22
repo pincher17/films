@@ -3,9 +3,6 @@ import { FiltersProps } from './Filters.types'
 
 export const Wrapper = styled.div<FiltersProps>`
  margin-bottom: 50px;
- @media (max-width: 1150px){
-   display: ${(props) => (props.mobile ? 'initial' : 'none')};
-  }
 `
 export const WrapperInput = styled.div`
   padding-bottom: 55px;

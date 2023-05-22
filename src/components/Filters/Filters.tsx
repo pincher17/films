@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { allGenres } from '../../data/allGenres';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { initialStateFiltersType, MovieType, setFilters } from '../../store/filtersSlice';
@@ -21,7 +21,7 @@ const Filters: React.FC<FiltersProps> = ({mobile}) =>{
     const [typeOfMovies, setTypeOfMovies] = React.useState(filters.typeOfMovies);
     const [selectedTypeOfMovies, setSelectedTypeOfMovies] = React.useState(filters.selectedTypeOfMovies);
 
-    console.log(filters)
+    console.log(typeOfMovies)
     const changeFilters = () => {
         const createfilters: initialStateFiltersType ={
             genre: valueGenre,
@@ -68,7 +68,7 @@ const Filters: React.FC<FiltersProps> = ({mobile}) =>{
           });
         }); */
       };
-    
+
     return (
     <Wrapper mobile={mobile}>
         <WrapperAllInputs>
@@ -113,7 +113,7 @@ const Filters: React.FC<FiltersProps> = ({mobile}) =>{
          </ButtonWrapper>
          
     </Wrapper>
-    )
+)
 }
 
 export default Filters;

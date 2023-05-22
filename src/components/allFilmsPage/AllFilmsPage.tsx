@@ -20,7 +20,24 @@ const AllFilmsPage: React.FC = () =>{
   const didMountPage= React.useRef(false);
   const showMore = () => dispatch(nextPage())
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false)
-
+  const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
+    
+      useEffect(() => {
+        const updateScreenResolution = () => {
+          setResolution({ width: window.innerWidth, height: window.innerHeight });
+        };
+    
+        // Обновляем разрешение при изменении размеров окна
+        window.addEventListener('resize', updateScreenResolution);
+    
+        // Инициализируем разрешение при первоначальной загрузке
+        updateScreenResolution();
+    
+        // Отписываемся от события при размонтировании компонента
+        return () => {
+          window.removeEventListener('resize', updateScreenResolution);
+        };
+      }, []);
 
   useEffect(() => {
     if(films.length) return
@@ -66,7 +83,7 @@ const AllFilmsPage: React.FC = () =>{
         <FilterIcon url={Filtericon} onClick={toggleSidebar} />
         </div>
       </WrapperNameBlock>
-      <Filters />
+      {resolution.width > 1150 ? <Filters /> : ''}
       <Sidebar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar}>
       <CrossIcon sidebar={true} onClick={toggleSidebar}>
           <Line1 />

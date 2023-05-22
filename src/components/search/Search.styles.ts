@@ -73,7 +73,7 @@ export const CrossIcon = styled.div<CrossIconProps>`
     right: 47px;
     top: 26px;
     position: absolute;` 
-    : 'none')};
+    : 'display: none')};
 `;
 
 export const Line1 = styled.div`
