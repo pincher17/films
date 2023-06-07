@@ -42,7 +42,7 @@ export const WrapperButtonShowMore = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: center;
- 
+  margin-bottom: 105px;
 `
 export const CrossIcon = styled.div<CrossIconProps>`
 display: none;
