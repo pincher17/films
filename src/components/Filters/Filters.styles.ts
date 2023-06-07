@@ -1,10 +1,15 @@
 import styled from 'styled-components'
+import { FiltersProps } from './Filters.types'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<FiltersProps>`
  margin-bottom: 50px;
 `
 export const WrapperInput = styled.div`
   padding-bottom: 55px;
+  @media (max-width: 850px){
+    margin-top: -20px;
+    padding-bottom: 40px;
+  }
 `
 
 export const WrapperAllInputs = styled.div`
@@ -13,6 +18,11 @@ export const WrapperAllInputs = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 1150px){
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 43px;
+  }
 `
 
 export const WrapperCheckbox = styled.div`

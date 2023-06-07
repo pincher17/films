@@ -1,6 +1,5 @@
-import { FilmsType } from '../../types/FilmsType';
-
-export interface CardProps {
-    card: FilmsType
+export interface FiltersProps {
+    mobile?: boolean
+    setIsOpenSidebar?: any
 }
 

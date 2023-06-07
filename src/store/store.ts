@@ -5,6 +5,7 @@ import filtersSlice from './filtersSlice';
 import newFilmsReducer from './newFilmsSlice';
 import searchSlice from './searchSlice';
 import youTubeTrailer from './youtubeSlice';
+import widthDeviceSlice from './widthDeviceSlice';
 
 /* const rootReducer = combineReducers({
   newFilms: newFilmsReducer,
@@ -23,7 +24,8 @@ const store = configureStore({
   filmInfo: filmInfo,
   search: searchSlice,
   filters: filtersSlice,
-  allFilms: allFilmsSlice
+  allFilms: allFilmsSlice,
+  widthDevice: widthDeviceSlice,
   },
 });
 

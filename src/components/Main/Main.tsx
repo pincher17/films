@@ -1,14 +1,14 @@
 import React from 'react';
 import NewFilms from '../NewFilms/NewFilms';
-import s from './Main.module.css';
+import { MainTag } from './Main.styles';
 
 
 const Main: React.FC = () =>{
 
     return (
-    <main className={s.main}>
+    <MainTag>
         <NewFilms />
-    </main>
+    </MainTag>
     )
 }
 

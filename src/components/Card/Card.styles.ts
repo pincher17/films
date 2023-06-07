@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: 222px;
+  width: 100%;
 `
 
 export const ImgWrapper = styled.div`
@@ -9,8 +9,8 @@ export const ImgWrapper = styled.div`
 `
 
 export const Img = styled.img`
-  width: 222px;
-  height: 333px;
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
   background-color: #2d2d2d;;
 `

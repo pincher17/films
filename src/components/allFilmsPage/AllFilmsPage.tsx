@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { getAllFilmsFiltersThunk, getAllFilmsThunk, nextPage, setPage } from '../../store/allFilmsSlice';
 import Cards from '../Cards';
 import Filters from '../Filters';
-import Layout from '../layout/Layout';
-import s from './AllFilmsPage.module.css';
+import Filtericon from '../../assets/icons/Filtericon.svg'
+import { MainTag } from '../Main/Main.styles';
+import { Button, CrossIcon, FilterIcon, Line1, Line2, NameBlock, Wrapper, WrapperButtonShowMore, WrapperNameBlock } from './AllFilmsPage.styles';
+import Sidebar from '../Sidebar/Sidebar';
 
 
 const AllFilmsPage: React.FC = () =>{
@@ -16,8 +18,26 @@ const AllFilmsPage: React.FC = () =>{
   const didMountFiltres = React.useRef(false);
   const didMountPage= React.useRef(false);
   const showMore = () => dispatch(nextPage())
+  const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false)
+  const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
+    
+      useEffect(() => {
+        const updateScreenResolution = () => {
+          setResolution({ width: window.innerWidth, height: window.innerHeight });
+        };
+    
+        // Обновляем разрешение при изменении размеров окна
+        window.addEventListener('resize', updateScreenResolution);
+    
+        // Инициализируем разрешение при первоначальной загрузке
+        updateScreenResolution();
+    
+        // Отписываемся от события при размонтировании компонента
+        return () => {
+          window.removeEventListener('resize', updateScreenResolution);
+        };
+      }, []);
 
-  console.log(films)
   useEffect(() => {
     if(films.length) return
     console.log('1')
@@ -47,22 +67,35 @@ const AllFilmsPage: React.FC = () =>{
 
     }, [page])
 
+    const toggleSidebar = () => {
+      setIsOpenSidebar(!isOpenSidebar);
+    };
   
     return (
-    <Layout>
-    <div className={s.wrapper}>
-      <div className={s.wrapper_name_block}>
+    <MainTag>
+    <Wrapper>
+      <WrapperNameBlock>
         <div>
-          <p className={s.name_block}>Все фильмы</p>
+          <NameBlock>Все фильмы</NameBlock>
         </div>
-      </div>
-      <Filters />
+        <div>
+        <FilterIcon url={Filtericon} onClick={toggleSidebar} />
+        </div>
+      </WrapperNameBlock>
+      {resolution.width > 1150 ? <Filters /> : ''}
+      <Sidebar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar}>
+      <CrossIcon sidebar={true} onClick={toggleSidebar}>
+          <Line1 />
+          <Line2 />
+        </CrossIcon>
+      <Filters mobile={true} setIsOpenSidebar={setIsOpenSidebar} />
+      </Sidebar>
       <Cards cards={films} />
-      <div className={s.wrapper_btn_show_more}>
-        <button onClick={showMore} className={s.btn}>Показать еще</button>
-      </div>
-    </div>
-    </Layout>
+      <WrapperButtonShowMore>
+        <Button onClick={showMore}>Показать еще</Button>
+      </WrapperButtonShowMore>
+    </Wrapper>
+    </MainTag>
     )
 }
 

@@ -8,6 +8,7 @@ type initialStateType ={
     resultSearchTotal: number
     currentPage: number
     totalPages: number | null
+    mobileSearch: boolean
 }
 
 const initialState: initialStateType ={
@@ -16,7 +17,7 @@ const initialState: initialStateType ={
     resultSearchTotal: 0,
     currentPage: 1,
     totalPages: null,
-    
+    mobileSearch: false,
 }
 
 const search = createSlice({
@@ -41,12 +42,15 @@ const search = createSlice({
         addTotalPages(state, action:PayloadAction<number>) {
             state.totalPages = action.payload;
         },
+        setMobileSearch(state, action:PayloadAction<boolean>) {
+            state.mobileSearch = action.payload;
+        },
     },
 });
 
 export const {addResultSearch, addResultSearchPage, 
                 addResultSearchTotal, addCurrentPage, addTotalPages,
-                refreshResultSearchPage} = search.actions;
+                refreshResultSearchPage, setMobileSearch} = search.actions;
 
 
 export const getFilmSearch = (query: string) =>{

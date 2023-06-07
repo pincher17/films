@@ -82,7 +82,7 @@ const SliderValue: React.FC<SliderValueProps> = (props) =>{
     </WrapperInputs>
     
     <ThemeProvider theme={theme}>
-    <Box sx={{ width: 222 }}>
+    <Box>
       <Slider
         value={value}
         onChange={handleChange}
