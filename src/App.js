@@ -12,6 +12,7 @@ import AllBlur from './components/AllBlur/AllBlur';
 import { useAppDispatch } from './hook';
 import { setWidthDevice } from './store/widthDeviceSlice';
 
+
 function App() {
   const dispatch = useAppDispatch();
 
@@ -31,8 +32,10 @@ function App() {
       window.removeEventListener('resize', updateScreenResolution);
     };
   }, []);
+
   return (
     <BrowserRouter>
+    <AllBlur />
       <Header />
       <Routes>
         <Route path='/' element={<Main />}/>
@@ -41,7 +44,8 @@ function App() {
         <Route path='/search/:searchQuery' element={<SearchPage />}/>
         <Route path='/films' element={<AllFilmsPage />}/>
       </Routes>
-    </BrowserRouter>
+      <MobileNavigation />
+  </BrowserRouter>
   );
 }
 
