@@ -7,6 +7,8 @@ import FilmPage from './components/FilmPage/FilmPage';
 import SearchPage from './components/searchPage/SearchPage';
 import AllFilmsPage from './components/allFilmsPage/AllFilmsPage';
 import Test from './Containers/Test/Test';
+import MobileNavigation from './components/MobileNavigation/MobileNavigation';
+import AllBlur from './components/AllBlur/AllBlur';
 import { useAppDispatch } from './hook';
 import { setWidthDevice } from './store/widthDeviceSlice';
 
