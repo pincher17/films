@@ -5,9 +5,8 @@ import Cards from '../Cards';
 import Filters from '../Filters';
 import Filtericon from '../../assets/icons/Filtericon.svg'
 import { MainTag } from '../Main/Main.styles';
-import { Button, FilterIcon, NameBlock, Wrapper, WrapperButtonShowMore, WrapperNameBlock } from './AllFilmsPage.styles';
+import { Button, CrossIcon, FilterIcon, Line1, Line2, NameBlock, Wrapper, WrapperButtonShowMore, WrapperNameBlock } from './AllFilmsPage.styles';
 import Sidebar from '../Sidebar/Sidebar';
-import { CrossIcon, Line1, Line2 } from '../search/Search.styles';
 
 
 const AllFilmsPage: React.FC = () =>{
@@ -89,7 +88,7 @@ const AllFilmsPage: React.FC = () =>{
           <Line1 />
           <Line2 />
         </CrossIcon>
-      <Filters mobile={true} />
+      <Filters mobile={true} setIsOpenSidebar={setIsOpenSidebar} />
       </Sidebar>
       <Cards cards={films} />
       <WrapperButtonShowMore>

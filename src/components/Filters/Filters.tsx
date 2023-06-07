@@ -11,7 +11,7 @@ import { FiltersProps } from './Filters.types';
 
 
 
-const Filters: React.FC<FiltersProps> = ({mobile}) =>{
+const Filters: React.FC<FiltersProps> = ({mobile, setIsOpenSidebar}) =>{
 
     const filters = useAppSelector(state => state.filters);
     const dispatch = useAppDispatch()
@@ -32,6 +32,7 @@ const Filters: React.FC<FiltersProps> = ({mobile}) =>{
             selectedTypeOfMovies: selectedTypeOfMovies,
         }
         dispatch(setFilters(createfilters))
+        setIsOpenSidebar(false)
     }
     
     const changeValueRating:any = (e: any) => {

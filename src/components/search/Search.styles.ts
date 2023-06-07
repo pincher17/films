@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CrossIconProps, SearchWrapperProps } from "./Search.types";
+import { CrossIconProps, GlobalStyleProps, SearchWrapperProps } from "./Search.types";
 
 export const SearchWrapper = styled.div<SearchWrapperProps>`
   position: relative;
@@ -12,11 +12,12 @@ export const SearchWrapper = styled.div<SearchWrapperProps>`
   @media (max-width: 850px){
     display: ${(props) => (props.active ? 'flex' : 'none')};
     position: absolute;
-    top: 65px;
+    top: 80px;
     left: 50%;
     transform: translate(-50%, 0);
-    height: 51px;
+    height: 40px;
     align-items: center;
+    width: 90%;
   }
 `;
 export const SearchInput = styled.input`
@@ -27,7 +28,10 @@ export const SearchInput = styled.input`
   color: white;
   font-size: 16px;
   position: relative;
-  padding-left: 10px;
+  padding-left: 15px;
+  @media (max-width: 850px){
+    border-radius: 8px;
+  }
   border-radius: 5px 0 0 5px;
   &::-webkit-input-placeholder {
     color: rgb(179, 179, 179);
@@ -61,9 +65,13 @@ export const ButtonSearch = styled.div`
     cursor: pointer;
     border-radius: 0 5px 5px 0;
 `;
-export const CrossIcon = styled.div<CrossIconProps>`
-  width: 25px;
-  height: 44px;
+export const Cancel = styled.div<CrossIconProps>`
+display: none;
+@media (max-width: 850px){
+  display: block;
+}
+  font-size: 18px;
+  font-weight: 400;
   position: relative;
   margin-left: 20px;
   cursor: pointer;
@@ -73,27 +81,7 @@ export const CrossIcon = styled.div<CrossIconProps>`
     right: 47px;
     top: 26px;
     position: absolute;` 
-    : 'display: none')};
-`;
-
-export const Line1 = styled.div`
-  height: 100%;
-  width: 3px;
-  margin-left: 12px;
-  background-color: #fff;
-  transform: rotate(45deg);
-  z-index: 1;
-`;
-
-export const Line2 = styled.div`
-  height: 100%;
-  width: 3px;
-  background-color: #fff;
-  transform: rotate(135deg);
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  left: 50%;
+    : '')};
 `;
 
 
@@ -103,8 +91,9 @@ export const SearchList = styled.div`
     width: 100%;
     background: none;
     box-shadow: none;
-    top: 70px;
+    top: 40px;
     height: 90vh;
+    padding-bottom: 150px;
   }
   width: calc(100% - 50px);
     top: 95%;

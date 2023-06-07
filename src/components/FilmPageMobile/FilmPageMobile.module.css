@@ -81,5 +81,6 @@ iframe{
 @media (max-width: 850px){
   .film{
     width: 94% !important;
+    position: initial !important;
   }
 }

@@ -27,7 +27,7 @@
 
 @media (max-width: 738px){
   .main{
-    min-width: 464px;
+    max-width: 464px;
     padding-left: 15px;
     padding-right: 15px;
   }

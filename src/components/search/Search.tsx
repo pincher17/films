@@ -4,8 +4,10 @@ import { getFilmSearch, setMobileSearch } from "../../store/searchSlice";
 import SearchIcon from "@mui/icons-material/Search";
 import s from "./SearchInput.module.css";
 import { useAppDispatch, useAppSelector } from "../../hook";
-import { AllBlur, ButtonSearch, CrossIcon, Image, ImageWrapper, Line1, Line2, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
+import { ButtonSearch, Cancel, Image, ImageWrapper, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
 import { Year } from "../Card";
+import useSetBodyScroll from "../../hooks/useSetBodyScroll";
+
 
 const Search: React.FC = () => {
   const [text, setText] = useState("");
@@ -13,6 +15,7 @@ const Search: React.FC = () => {
   const dispatch = useAppDispatch();
   const resultSearch = useAppSelector((state) => state.search.resultSearch);
   const mobileSearch = useAppSelector((state) => state.search.mobileSearch);
+  const widthDevice = useAppSelector((state) => state.widthDevice.width);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -22,6 +25,20 @@ const Search: React.FC = () => {
     }
   }, [text]);
 
+  useSetBodyScroll()
+  useEffect(() => {
+    const html = document.querySelector("html");
+    if (html) {
+      if (mobileSearch) {
+        html.style.overflow = "hidden";
+        html.style.position = "fixed";
+      } else {
+        html.style.overflow = "auto";
+        html.style.position = "static";
+      }
+    }
+  }, [mobileSearch]);
+
   useEffect(() => {
     if (text.length >= 2 && resultSearch.length > 0) {
       setSearchList(true);
@@ -29,6 +46,23 @@ const Search: React.FC = () => {
       setSearchList(false);
     }
   }, [resultSearch]);
+
+  useEffect(() => {
+    const handleTouchStart = (event: TouchEvent) => {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        inputRef.current.blur();
+      }
+    };
+
+    document.addEventListener('touchstart', handleTouchStart);
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+    };
+  }, []);
 
   const onFocusSearch = () => {
     if (text.length >= 2 && resultSearch.length > 0) setSearchList(true);
@@ -42,11 +76,23 @@ const Search: React.FC = () => {
     dispatch(setMobileSearch(false))
   };
 
+  const onBlur = () => {
+    if(widthDevice > 850){
+      setSearchList(false)
+    }
+  };
+
   const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       navigate(`/search/${text}`);
       inputRef.current?.blur();
     }
+  };
+
+  const onMouseDownNavigate = (id: number) => {
+    navigate("../film/" + id, { replace: true })
+    inputRef.current?.blur();
+    closeSearch()
   };
 
   useEffect(() => {
@@ -62,7 +108,7 @@ const Search: React.FC = () => {
         type="search"
         onChange={(e) => setText(e.target.value)}
         onFocus={onFocusSearch}
-        onBlur={() => setSearchList(false)}
+        onBlur={onBlur}
         onKeyPress={onKeyPressHandler}
         ref={inputRef}
       ></SearchInput>
@@ -73,7 +119,7 @@ const Search: React.FC = () => {
             <div key={i.id}>
               <div
                 onMouseDown={() =>
-                  navigate("../film/" + i.id, { replace: true })
+                  onMouseDownNavigate(i.id)
                 }
               >
                 <ImageWrapper>
@@ -100,10 +146,9 @@ const Search: React.FC = () => {
         <ButtonSearch onClick={submitForm}>
           <SearchIcon sx={{ fontSize: 28 }} />
         </ButtonSearch>
-        <CrossIcon onClick={closeSearch}>
-          <Line1 />
-          <Line2 />
-        </CrossIcon>
+        <Cancel onClick={closeSearch}>
+          Отмена
+        </Cancel>
         {/* </NavLink> */}
       </div>
     </SearchWrapper>

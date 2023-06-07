@@ -5,20 +5,23 @@ export const MainTag = styled.main`
   max-width: 1440px;
   height: 100%;
   border: 1px solid rgba(255, 0, 0, 0);
+  padding-left: 20px;
+  padding-right: 20px;
 
-  @media (max-width: 1500px){
+   @media (max-width: 1500px){
     max-width: 1250px;
+    padding-left: 70px;
+    padding-right: 70px;
   }
+  /*
   @media (max-width: 1300px){
     max-width: 1050px;
-  }
+  } */
   @media (max-width: 1150px){
-    max-width: 774px;
-    padding-left: 15px;
-    padding-right: 15px;
+    /* max-width: 774px; */
   }
   @media (max-width: 738px){
-    min-width: 464px;
+    max-width: 100%;
     padding-left: 15px;
     padding-right: 15px;
   }

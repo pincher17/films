@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SidebarButton, SidebarContainer, SidebarContent } from "./Sidebar.styles";
+import { SidebarButton, SidebarContainer, SidebarContent, Title } from "./Sidebar.styles";
 import { SidebarProps } from "./Sidebar.types";
 
 
@@ -10,6 +10,7 @@ const Sidebar: React.FC<SidebarProps> = ({isOpenSidebar, toggleSidebar, children
     <>
     <SidebarContainer isOpen={isOpenSidebar}>
       <SidebarContent>
+        <Title>Фильтры</Title>
         {children}
       </SidebarContent>
     </SidebarContainer>

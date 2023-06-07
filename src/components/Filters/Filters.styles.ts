@@ -6,6 +6,10 @@ export const Wrapper = styled.div<FiltersProps>`
 `
 export const WrapperInput = styled.div`
   padding-bottom: 55px;
+  @media (max-width: 850px){
+    margin-top: -20px;
+    padding-bottom: 40px;
+  }
 `
 
 export const WrapperAllInputs = styled.div`

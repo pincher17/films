@@ -17,7 +17,7 @@ export const NavigationItem = styled.div<NavigationItemProps>`
   }
 
   span {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     color: ${(props) => (props.active ? '#fff' : '#b3b3b3')};
   }
@@ -28,36 +28,40 @@ export const NavigationItem = styled.div<NavigationItemProps>`
 `;
 
 export const NavigationContainer = styled.div`
-  display: flex;
+  display: none;
   justify-content: space-around;
   align-items: center;
   position: fixed;
-  bottom: 0;
+  bottom: -3px;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   background-color: #181818;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   background: rgb(21 21 21 / 83%);
+  padding-bottom: 5px;
+  @media (max-width: 850px){
+  display: flex;
+  }
 `;
 
 export const HomeIcon = styled(Homeicon)<NavigationItemProps>`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-bottom: 5px;
   stroke: ${(props) => (props.active ? '#fff' : '#b3b3b3')};
   fill: none;
 `
 
 export const SearchIcon = styled(Searchicon)`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-bottom: 5px;
 `
 export const AllFilmsIcon = styled(Allfilmsicon)<NavigationItemProps>`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-bottom: 5px;
   stroke: ${(props) => (props.active ? '#fff' : '#b3b3b3')};
   stroke-width: 0.5px;

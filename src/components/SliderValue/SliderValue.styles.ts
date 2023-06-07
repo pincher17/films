@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 222px;
+  @media (max-width: 850px){
+  width: 85%;
+ }
 `
 
 export const Title = styled.div`
@@ -14,4 +17,10 @@ export const WrapperInputs = styled.div`
  & > :first-child{
   margin-right: 30px;
  }
+ @media (max-width: 850px){
+  & .input{
+  height: 50px;
+ }
+  }
+
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { CrossIconProps } from '../search/Search.types'
 
 export const Wrapper = styled.div`
   margin-top: 90px;
@@ -43,3 +44,43 @@ export const WrapperButtonShowMore = styled.div`
   justify-content: center;
  
 `
+export const CrossIcon = styled.div<CrossIconProps>`
+display: none;
+@media (max-width: 850px){
+display: block;
+  }
+  width: 25px;
+  height: 44px;
+  position: relative;
+  margin-left: 20px;
+  cursor: pointer;
+  ${(props) => (props.sidebar ? 
+   `margin-left: 0;
+    cursor: pointer;
+    right: 47px;
+    top: 26px;
+    position: absolute;` 
+    : '')};
+`;
+
+export const Line1 = styled.div`
+  height: 100%;
+  width: 3px;
+  margin-left: 12px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  z-index: 1;
+  position: absolute;
+  top: 0;
+`;
+
+export const Line2 = styled.div`
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform: rotate(135deg);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 50%;
+`;

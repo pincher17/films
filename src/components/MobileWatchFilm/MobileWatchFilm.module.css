@@ -41,7 +41,8 @@
   position: absolute !important;
   width: 70% !important; 
     height: 100% !important;
-    
+    top: 10%;
+    left: 5px;
 }
 
 iframe{
@@ -64,8 +65,8 @@ iframe{
 
 @media (max-width: 1150px){
   .film{
-    width: 80% !important;
-    height: 530px !important;
+    width: 70% !important;
+    height: 400px !important;
   }
   .img{
     margin-right: 0px;
@@ -80,6 +81,6 @@ iframe{
 
 @media (max-width: 850px){
   .film{
-    width: 94% !important;
+    width: 70% !important;
   }
 }
