@@ -10,7 +10,6 @@ export const ButtonWrapper = styled.div`
   text-decoration: none;
   border: 1px solid rgb(184, 22, 22);
   border-radius: 5px;
-  margin-bottom: 105px
 ;
   &:active {
           background: rgb(147 14 14);
