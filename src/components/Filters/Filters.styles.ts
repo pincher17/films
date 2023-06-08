@@ -33,5 +33,5 @@ export const WrapperCheckbox = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
- 
+ width: 220px;
 `
