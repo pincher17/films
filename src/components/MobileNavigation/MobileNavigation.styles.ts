@@ -41,6 +41,7 @@ export const NavigationContainer = styled.div`
   backdrop-filter: blur(6px);
   background: rgb(21 21 21 / 83%);
   padding-bottom: 5px;
+  z-index: 3;
   @media (max-width: 850px){
   display: flex;
   }

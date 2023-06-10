@@ -8,12 +8,16 @@ import arrowPrevHover from '../../assets/icons/arrowPrevHover.svg'
 
 export const WrapperSlide = styled('div')`
   padding: 20px 0px;
+ 
 `
 export const Wrapper = styled('div')`
   padding: 0px 24px;
 `
 export const StyledSlider = styled(Swiper)`
   padding: 0px 18px 0px 18px;
+  @media screen and (max-width: 1024px) {
+      padding: 0;
+    }
   & > div.swiper-button-next {
     background-image: url(${arrowNext});
     background-repeat: no-repeat;
@@ -26,8 +30,8 @@ export const StyledSlider = styled(Swiper)`
     -webkit-box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.2);
-    @media screen and (max-width: 1024px) {
-      /* display: none; */
+    @media screen and (max-width: 850px) {
+      display: none; 
     }
     margin-top: calc(0px - (var(--swiper-navigation-size)/ .6));
   }
@@ -62,8 +66,8 @@ export const StyledSlider = styled(Swiper)`
     -webkit-box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.2);
-    @media screen and (max-width: 1024px) {
-      /* display: none; */
+    @media screen and (max-width: 850px) {
+      display: none; 
     }
     margin-top: calc(0px - (var(--swiper-navigation-size)/ .6));
   }
@@ -85,4 +89,5 @@ export const StyledSlider = styled(Swiper)`
   & > .swiper-button-prev::after {
     display: none;
   }
+
 `

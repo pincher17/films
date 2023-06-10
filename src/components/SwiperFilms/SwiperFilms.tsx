@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 // import required modules
-import { Navigation } from 'swiper'
+import SwiperClass, { Navigation } from 'swiper'
 import { SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -15,15 +15,44 @@ import { CardsProps } from '../Cards/Cards.types'
 
 
 const SwiperFilms: React.FC<CardsProps> = ({cards}) => {
+
   
+  /* const onSwiper = (swiper: SwiperClass) => {
+		setTimeout(() => {
+      // @ts-ignore
+      swiper.params.navigation.prevEl = navigationPrevRef.current;
+      // @ts-ignore
+      swiper.params.navigation.nextEl = navigationNextRef.current;
+			// Re-init navigation
+			swiper.navigation.destroy();
+			swiper.navigation.init();
+			swiper.navigation.update();
+		});
+	}; */
+
   return (
     <StyledSlider
-      slidesPerView={1}
-      spaceBetween={25}
-      navigation
-      modules={[Navigation]}
-      className="mySwiper"
-      breakpoints={{ 540: { slidesPerView: 3 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 5}, 1920: { spaceBetween: 70, slidesPerView: 5}  }}
+    slidesPerView={2.5}
+    slidesPerGroup={2}
+    spaceBetween={10}
+    modules={[Navigation]}
+    className="mySwiper"
+    speed={500}
+    navigation
+    breakpoints={
+        { 
+          577: { slidesPerGroup: 3,
+            slidesPerView: 3,
+            spaceBetween: 15, }, 
+            769: { slidesPerGroup: 3,
+              slidesPerView: 3,
+              spaceBetween: 30,}, 
+          1024: { slidesPerGroup: 4,
+            slidesPerView: 4,
+            spaceBetween: 30,}, 
+          1200: { slidesPerGroup: 5,
+            slidesPerView: 5,
+            spaceBetween: 30,}  }}
     >
       <Wrapper>
         {cards.map((item) => (
