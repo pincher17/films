@@ -20,32 +20,6 @@ const FilmPageMobile: React.FC = (props) =>{
   const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
   const [watchFilm, setWatchFilm] = React.useState<boolean>(false);
 
-  const adsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new MutationObserver((mutationsList) => {
-      for (const mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-          const adsElement = document.getElementById('ads');
-          if (adsElement) {
-            adsElement.style.display = 'none';
-          }
-        }
-      }
-    });
-
-    if (adsRef.current && adsRef.current.parentElement) {
-      observer.observe(adsRef.current.parentElement, {
-        childList: true,
-      });
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-
   useEffect(() => {
   dispatch(getFilmById(id))
   }, [id]);
