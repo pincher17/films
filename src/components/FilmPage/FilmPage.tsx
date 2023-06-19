@@ -17,22 +17,6 @@ const FilmPage: React.FC = (props) =>{
   const refDataFilm = useRef<HTMLInputElement | null>(null);
   const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
 
-  useEffect(() => {
-    const iframe = document.getElementById('yohoho-iframe') as HTMLIFrameElement | null;
-
-    if (iframe) {
-      const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
-
-      if (iframeDocument) {
-        const scriptElement = iframeDocument.querySelector('script[data-name="ad"]');
-        
-        if (scriptElement) {
-          scriptElement.remove();
-        }
-      }
-    }
-  }, []);
-
     
       useEffect(() => {
         const updateScreenResolution = () => {
