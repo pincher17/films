@@ -21,6 +21,22 @@ const FilmPageMobile: React.FC = (props) =>{
   const [watchFilm, setWatchFilm] = React.useState<boolean>(false);
 
   useEffect(() => {
+    const iframe = document.getElementById('yohoho-iframe') as HTMLIFrameElement | null;
+
+    if (iframe) {
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
+
+      if (iframeDocument) {
+        const scriptElement = iframeDocument.querySelector('script[data-name="ad"]');
+        
+        if (scriptElement) {
+          scriptElement.remove();
+        }
+      }
+    }
+  }, []);
+
+  useEffect(() => {
   dispatch(getFilmById(id))
   }, [id]);
 
