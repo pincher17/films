@@ -4,7 +4,7 @@ const TOKEN = "XR49Z74-EYEMXHC-K3763BK-VPTYA9M"
 
 
 const instance = axios.create({
-    baseURL: 'https://api.kinopoisk.dev/v1/',
+    baseURL: 'https://api.kinopoisk.dev/v1.3/',
     headers: {
         'accept': 'application/json',
         'X-API-KEY': 'XR49Z74-EYEMXHC-K3763BK-VPTYA9M',
@@ -18,7 +18,7 @@ export const filmsApi = {
         })
     },
     getFilmById(id){
-        return instance.get(`movie?search=${id}&field=id`).then(response =>{
+        return instance.get(`movie/${id}`).then(response =>{
             return response;
         })
     },
@@ -30,7 +30,7 @@ export const filmsApi = {
         })
     },
     getFilms(filters, page){
-        return instance.get(`movie?${filters.selectedTypeOfMovies.map((item)=>`field[]=typeNumber&search[]=${item}&`).join('')}${filters.genre.length ? filters.genre.map((item)=>`field[]=genres.name&search[]=${item.value}&`).join(''):''}&field[]=year&search[]=${filters.year[0]}-${filters.year[1]}&field=rating.kp&search[]=${filters.rating[0]}-${filters.rating[1]}&sortField[]=year&sortType[]=${filters.sortByRelease}&limit=40&page=${page}&field=poster&search=!null`)
+        return instance.get(`movie?${filters.selectedTypeOfMovies.map((item)=>`&typeNumber=${item}&`).join('')}${filters.genre.length ? filters.genre.map((item)=>`&genres.name=${item.value}&`).join(''):''}&year=${filters.year[0]}-${filters.year[1]}&rating.kp=${filters.rating[0]}-${filters.rating[1]}&sortField[]=year&sortType[]=${filters.sortByRelease}&limit=40&page=${page}&field=poster&search=!null`)
         /* return instance.get(`movie?field[]=genres.name&search[]=драма&field[]=year&search[]=${filters.year}&field=rating.kp&search[]=${filters.rating}&field[]=typeNumber&search[]=1&field[]=votes.kp&search[]=!null&sortField[]=year&sortType[]=${filters.sortByRelease}&limit=30&page=${page}&field=poster&search=!null&token=${TOKEN}`) */
         /* return instance.get(`movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=!null&field=name&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=${filters.sortByRelease}&limit=30&page=${page}&token=${TOKEN}`) */
         .then(response =>{

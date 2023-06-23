@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { allGenres } from '../../data/allGenres';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { initialStateFiltersType, MovieType, setFilters } from '../../store/filtersSlice';
@@ -7,10 +7,11 @@ import CheckBox from '../CheckBox';
 import MultipleSelect from '../MultipleSelect';
 import SliderValue from '../SliderValue';
 import { ButtonWrapper, Wrapper, WrapperAllInputs, WrapperCheckbox, WrapperInput } from './Filters.styles';
+import { FiltersProps } from './Filters.types';
 
 
 
-const Filters: React.FC = (props) =>{
+const Filters: React.FC<FiltersProps> = ({mobile, setIsOpenSidebar}) =>{
 
     const filters = useAppSelector(state => state.filters);
     const dispatch = useAppDispatch()
@@ -20,7 +21,7 @@ const Filters: React.FC = (props) =>{
     const [typeOfMovies, setTypeOfMovies] = React.useState(filters.typeOfMovies);
     const [selectedTypeOfMovies, setSelectedTypeOfMovies] = React.useState(filters.selectedTypeOfMovies);
 
-    console.log(filters)
+    console.log(typeOfMovies)
     const changeFilters = () => {
         const createfilters: initialStateFiltersType ={
             genre: valueGenre,
@@ -31,6 +32,7 @@ const Filters: React.FC = (props) =>{
             selectedTypeOfMovies: selectedTypeOfMovies,
         }
         dispatch(setFilters(createfilters))
+        setIsOpenSidebar(false)
     }
     
     const changeValueRating:any = (e: any) => {
@@ -67,9 +69,9 @@ const Filters: React.FC = (props) =>{
           });
         }); */
       };
-    
+
     return (
-    <Wrapper>
+    <Wrapper mobile={mobile}>
         <WrapperAllInputs>
         <WrapperCheckbox>
         {typeOfMovies.map((item, index) => (
@@ -112,7 +114,7 @@ const Filters: React.FC = (props) =>{
          </ButtonWrapper>
          
     </Wrapper>
-    )
+)
 }
 
 export default Filters;

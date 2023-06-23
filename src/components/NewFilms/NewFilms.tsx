@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice';
-import Button from '../Button';
 import Cards from '../Cards/Cards';
 import s from './NewFilms.module.css';
+import { Button } from '../allFilmsPage/AllFilmsPage.styles';
 
 
 const NewFilms: React.FC = () =>{
