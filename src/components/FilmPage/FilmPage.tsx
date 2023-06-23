@@ -17,6 +17,37 @@ const FilmPage: React.FC = (props) =>{
   const refDataFilm = useRef<HTMLInputElement | null>(null);
   const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
 
+  /* useEffect(() => {
+    const iframeContainer = document.getElementById('yohoho-iframe');
+
+    const handleIframeCreation = (event: MutationRecord) => {
+      const addedNodes = Array.from(event.addedNodes);
+      for (const node of addedNodes) {
+        if (node instanceof HTMLIFrameElement) {
+          // Предотвращение добавления новых iframe внутри yohoho-iframe
+          node.remove();
+        }
+      }
+    };
+
+    if (iframeContainer) {
+      // Наблюдение за изменениями в дочерних элементах
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          handleIframeCreation(mutation);
+        }
+      });
+
+      // Запуск наблюдения за добавлением новых элементов
+      observer.observe(iframeContainer, { childList: true });
+
+      return () => {
+        // Отмена наблюдения при размонтировании компонента
+        observer.disconnect();
+      };
+    }
+  }, []); */
+
     
       useEffect(() => {
         const updateScreenResolution = () => {
