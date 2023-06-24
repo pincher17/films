@@ -17,7 +17,7 @@ const FilmPage: React.FC = (props) =>{
   const refDataFilm = useRef<HTMLInputElement | null>(null);
   const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
 
-  useEffect(() => {
+  /* useEffect(() => {
     const iframeContainer = document.getElementById('yohoho-iframe');
 
     const handleIframeCreation = (event: MutationRecord) => {
@@ -46,7 +46,7 @@ const FilmPage: React.FC = (props) =>{
         observer.disconnect();
       };
     }
-  }, []);
+  }, []); */
 
     
       useEffect(() => {
