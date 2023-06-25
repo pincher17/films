@@ -99,11 +99,11 @@ export const Iframe = styled.iframe<IframeProps>`
   width: 70% !important;
   }
  @media (max-width: 1150px){
-  height: 25% !important;
+  height: 500px !important;
   width: 75% !important;
   }
   @media (max-width: 1030px){
-  height: 25% !important;
+  height: 500px !important;
   width: 85% !important;
   }
 `
