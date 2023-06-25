@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { createRef, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
@@ -5,7 +6,7 @@ import { getFilmById } from '../../store/filmInfoSlice';
 import LayoutFilm from '../layoutFilm/LayoutFilm';
 import SwiperFilms from '../SwiperFilms/SwiperFilms';
 import s from './FilmPage.module.css';
-import { Description, Flex, Img, MarginTopTitle, MarginTopValue, Name, NameTitle, PositionAbsolute, SwiperWrapperSimilar, TextValue, TitleDescription, ValueTextSpan, Wrapper, WrapperInfo, WrapperWatchFilm } from './FilmPage.styles';
+import { Description, Flex, Iframe, Img, MarginTopTitle, MarginTopValue, Name, NameTitle, PositionAbsolute, SwiperWrapperSimilar, TextValue, TitleDescription, ValueTextSpan, Wrapper, WrapperInfo, WrapperWatchFilm } from './FilmPage.styles';
 import FilmInfoText from '../FilmInfoText/FilmInfoText';
 import FilmPageMobile from '../FilmPageMobile/FilmPageMobile';
 
@@ -16,37 +17,6 @@ const FilmPage: React.FC = (props) =>{
   const {preview, countries, genres, ratingKinopoisk} = useAppSelector(state => state.filmInfo)
   const refDataFilm = useRef<HTMLInputElement | null>(null);
   const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
-
-  /* useEffect(() => {
-    const iframeContainer = document.getElementById('yohoho-iframe');
-
-    const handleIframeCreation = (event: MutationRecord) => {
-      const addedNodes = Array.from(event.addedNodes);
-      for (const node of addedNodes) {
-        if (node instanceof HTMLIFrameElement) {
-          // Предотвращение добавления новых iframe внутри yohoho-iframe
-          node.remove();
-        }
-      }
-    };
-
-    if (iframeContainer) {
-      // Наблюдение за изменениями в дочерних элементах
-      const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-          handleIframeCreation(mutation);
-        }
-      });
-
-      // Запуск наблюдения за добавлением новых элементов
-      observer.observe(iframeContainer, { childList: true });
-
-      return () => {
-        // Отмена наблюдения при размонтировании компонента
-        observer.disconnect();
-      };
-    }
-  }, []); */
 
     
       useEffect(() => {
@@ -74,82 +44,45 @@ const FilmPage: React.FC = (props) =>{
     refDataFilm.current?.setAttribute("data-kinopoisk", `${id}`);
   }, [id, resolution.width]);
 
-/* let videos = props.videos.trailers */
 
-/* const getYouTubeId = (videos) => {
-  const regex =
-    /(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/user\/\S+|\/ytscreeningroom\?v=|\/sandalsResorts#\w\/\w\/.*\/))([^\/&]{10,12})/;
-
-  return videos?.map((video) => {
-    return {
-      ...video,
-      embedUrl: `https://www.youtube.com/embed/${regex.exec(video.url)?.[1]}`,
-    };
-  });
-}; */
-
-
-
-/* useEffect(() => {
-  navigate(`../film/${id}`, { replace: true })
-  },[id]) */
-
-  useEffect(() => {
+/*   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "//yohoho.cc/yo.js";
+    //script.src = "//yohoho.cc/yo.js";
+    script.src = "https://v1687693103.bazon.site/js/bazon.js";
     document.body.appendChild(script);
-  
     return () => {
       script.remove();
     };
-    }, [id]);
+    }, [id]); */
 
-    if(resolution.width < 850){
+
+    
+
+
+    if(resolution.width && resolution.width < 850){
       
       return <FilmPageMobile />
     }
 
-/* 
-console.log(getYouTubeId(videos))
-let link = getYouTubeId(videos) */
     return (
         <Wrapper>
           <LayoutFilm>
-          {/* <iframe 
-              src={link[1].embedUrl}
-              src='https://www.site.ru'
-              allowFullScreen 
-              title="Video player" /> */}
-
-          {/* <div id="yohoho" data-kinopoisk="435"></div> */}
-          {/* <script src="//yohoho.cc/yo.js"></script> */}
           <WrapperInfo>
-              {resolution.width > 850
-              ? <FilmInfoText 
+              <FilmInfoText 
                 countries={countries} 
                 filmInfoId={filmInfoId} 
                 genres={genres} 
                 ratingKinopoisk={ratingKinopoisk}
                 resolution={resolution}
                />
-              : ''
-              }
           <WrapperWatchFilm>
             <div>
               <img className={s.img} src={preview} alt="" />
             </div>
-            {resolution.width < 850
-              ? <FilmInfoText 
-                countries={countries} 
-                filmInfoId={filmInfoId} 
-                genres={genres} 
-                ratingKinopoisk={ratingKinopoisk}
-                resolution={resolution}
-               />
-              : ''
-              }
             <div key={id.toString()}>
-              <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div>
+              {/* <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div> */}
+              {/* <div key={id} ref={refDataFilm} id='bazon' data-width='600' data-height='400'></div> */}
+              <Iframe src={`https://v1687699810.bazon.site/kp/${id}`} frameBorder="0" scrolling="no" allowFullScreen referrerPolicy="origin" width="500" height="352"></Iframe>
             </div>
           </WrapperWatchFilm>
           </WrapperInfo>

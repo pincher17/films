@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { CrossIcon } from "../allFilmsPage/AllFilmsPage.styles";
+import { IframeProps } from "../FilmPage/Iframe.types";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -20,3 +21,10 @@ export const CrossIconFilm = styled(CrossIcon)`
  top: 3%;
     left: 62%;
 `;
+
+export const Iframe = styled.iframe<IframeProps>`
+    width: 70% !important;
+    height: 500px !important;
+    top: 7%;
+    left: 5px;
+`

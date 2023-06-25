@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IframeProps } from "./Iframe.types";
 
 export const Wrapper = styled.div`
   z-index: 1;
@@ -87,3 +88,22 @@ export const SwiperWrapperSimilar = styled.div`
     margin-top: 565px;
   }
 `;
+
+
+export const Iframe = styled.iframe<IframeProps>`
+ width: 71% !important;
+ @media (min-width: 1500px){
+  width: 75% !important;
+  }
+  @media (max-width: 1300px){
+  width: 70% !important;
+  }
+ @media (max-width: 1150px){
+  height: 25% !important;
+  width: 75% !important;
+  }
+  @media (max-width: 1030px){
+  height: 25% !important;
+  width: 85% !important;
+  }
+`
