@@ -82,7 +82,7 @@ const FilmPage: React.FC = (props) =>{
             <div key={id.toString()}>
               {/* <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div> */}
               {/* <div key={id} ref={refDataFilm} id='bazon' data-width='600' data-height='400'></div> */}
-              <Iframe src={`https://v1687699810.bazon.site/kp/${id}`} frameBorder="0" scrolling="no" allowFullScreen referrerPolicy="origin" width="500" height="352"></Iframe>
+            <Iframe src={`https://v1687699810.bazon.site/kp/${id}?noads=1`} frameBorder="0" scrolling="no" allowFullScreen referrerPolicy="origin" width="500" height="352"></Iframe>
             </div>
           </WrapperWatchFilm>
           </WrapperInfo>
