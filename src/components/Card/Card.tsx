@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Img, ImgWrapper, Rating, RatingNum, Wrapper, Year } from './Card.styles';
+import { Img, ImgWrap, ImgWrapper, Rating, RatingNum, Wrapper, Year } from './Card.styles';
 import { CardProps } from './Card.types';
+import { AspectRatio } from '@mui/icons-material';
 
 
 const Card: React.FC<CardProps> = (props) =>{
@@ -18,7 +19,9 @@ const {
     <Wrapper key={id}>
             <NavLink to={'/film/' + id }>
             <ImgWrapper>
-            <Img src={poster?.previewUrl} alt="" />
+            <ImgWrap>
+            {poster.previewUrl && <Img src={poster.previewUrl} alt={name} />}
+            </ImgWrap>
             {rating?.kp &&
             <Rating>
                 <RatingNum>{rating?.kp}</RatingNum>

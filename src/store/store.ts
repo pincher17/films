@@ -6,6 +6,7 @@ import newFilmsReducer from './newFilmsSlice';
 import searchSlice from './searchSlice';
 import youTubeTrailer from './youtubeSlice';
 import widthDeviceSlice from './widthDeviceSlice';
+import Loading from './Loading';
 
 /* const rootReducer = combineReducers({
   newFilms: newFilmsReducer,
@@ -26,6 +27,7 @@ const store = configureStore({
   filters: filtersSlice,
   allFilms: allFilmsSlice,
   widthDevice: widthDeviceSlice,
+  loading: Loading
   },
 });
 

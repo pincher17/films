@@ -5,6 +5,8 @@ import { addLimit, getnewFilmsThunk } from '../../store/newFilmsSlice';
 import Cards from '../Cards/Cards';
 import s from './NewFilms.module.css';
 import { Button } from '../allFilmsPage/AllFilmsPage.styles';
+import SkeletonCard from '../SkeletonCard/SkeletonCard';
+import { Wrapper } from '../Cards';
 
 
 const NewFilms: React.FC = () =>{
@@ -12,7 +14,6 @@ const NewFilms: React.FC = () =>{
   const films = useAppSelector(state => state.newFilms.films);
   const limit = useAppSelector(state => state.newFilms.limit);
   const dispatch = useAppDispatch()
-
   const showMore = () => dispatch(addLimit())
   
   useEffect(() => {

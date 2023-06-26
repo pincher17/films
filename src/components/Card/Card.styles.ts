@@ -9,10 +9,13 @@ export const ImgWrapper = styled.div`
 `
 
 export const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background-color: #2d2d2d;;
+  position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  border-radius: 15px;
+  background-color: #424242;;
 `
 
 export const Rating = styled.div`
@@ -33,3 +36,13 @@ export const RatingNum = styled.span`
 export const Year = styled.div`
   margin-bottom: 50px;
 `
+export const ImgWrap = styled.div`
+  position: relative;
+  &::after {
+    display: block;
+    content: '';
+    /* 16:9 aspect ratio */
+    padding-bottom: 150%;
+  }
+`
+

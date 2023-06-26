@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { filmsApi } from '../api/api';
 import { ArrayFilmsType, FilmsType } from '../types/FilmsType';
 import { initialStateFiltersType } from './filtersSlice';
+import { setLoading } from './Loading';
 
 type initialStateType ={
     films: Array<FilmsType>
@@ -42,11 +43,11 @@ export const {addFilms, nextPage, setPage, clearFilms, addFilmsNewFilters} = all
 export const getAllFilmsThunk = (filters: initialStateFiltersType, page: any) =>{
     return (dispatch: any) => {
 
-        //dispatch(setFetching(true))
+        dispatch(setLoading(true))
         filmsApi.getFilms(filters, page).then((response: any) =>{
             
             dispatch(addFilms(response.data.docs))
-            //dispatch(setFetching(false))
+            dispatch(setLoading(false))
     })
     }
 }
@@ -54,11 +55,11 @@ export const getAllFilmsThunk = (filters: initialStateFiltersType, page: any) =>
 export const getAllFilmsFiltersThunk = (filters: initialStateFiltersType, page: any) =>{
     return (dispatch: any) => {
 
-        //dispatch(setFetching(true))
+        dispatch(setLoading(true))
         filmsApi.getFilms(filters, page).then((response: any) =>{
             
             dispatch(addFilmsNewFilters(response.data.docs))
-            //dispatch(setFetching(false))
+            dispatch(setLoading(false))
     })
     }
 }
