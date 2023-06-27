@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 // import required modules
-import SwiperClass, { Navigation } from 'swiper'
+import SwiperClass, { Mousewheel, Navigation } from 'swiper'
 import { SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -32,10 +32,12 @@ const SwiperFilms: React.FC<CardsProps> = ({cards}) => {
 
   return (
     <StyledSlider
+    cssMode={true}
+    mousewheel={true}
     slidesPerView={2.5}
     slidesPerGroup={2}
     spaceBetween={10}
-    modules={[Navigation]}
+    modules={[Navigation, Mousewheel]}
     className="mySwiper"
     speed={500}
     navigation
