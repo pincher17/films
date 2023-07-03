@@ -10,11 +10,16 @@ export const WrapperSlide = styled('div')`
   padding: 20px 0px;
  
 `
+export const Title = styled('p')`
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0px;
+`
 export const Wrapper = styled('div')`
   padding: 0px 24px;
 `
 export const StyledSlider = styled(Swiper)`
-  padding: 0px 18px 0px 18px;
+  /* padding: 0px 18px 0px 18px; */
   @media screen and (max-width: 1024px) {
       padding: 0;
     }

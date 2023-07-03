@@ -1,22 +1,23 @@
 /* eslint-disable import/no-unresolved */
-import React, { useState } from 'react'
+import React from 'react'
 
 // import required modules
-import SwiperClass, { Mousewheel, Navigation } from 'swiper'
+import { Mousewheel, Navigation } from 'swiper'
 import { SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-import { StyledSlider, Wrapper, WrapperSlide } from './SwiperFilms.styles'
+import { StyledSlider, Title, Wrapper, WrapperSlide } from './SwiperFilms.styles'
 import Card from '../Card'
-import { CardsProps } from '../Cards/Cards.types'
+import { SwiperFilmsProps } from './SwiperFilms.types'
 
 
-const SwiperFilms: React.FC<CardsProps> = ({cards}) => {
 
-  
+const SwiperFilms: React.FC<SwiperFilmsProps> = ({cards, title}) => {
+
+
   /* const onSwiper = (swiper: SwiperClass) => {
 		setTimeout(() => {
       // @ts-ignore
@@ -31,6 +32,8 @@ const SwiperFilms: React.FC<CardsProps> = ({cards}) => {
 	}; */
 
   return (
+    <>
+    {cards.length ? <Title>{title}</Title> : ''}
     <StyledSlider
     cssMode={true}
     mousewheel={true}
@@ -56,16 +59,18 @@ const SwiperFilms: React.FC<CardsProps> = ({cards}) => {
             slidesPerView: 5,
             spaceBetween: 30,}  }}
     >
+      
       <Wrapper>
         {cards.map((item) => (
           <SwiperSlide key={item.id}>
             <WrapperSlide>
-            <Card card={item} />
+              <Card card={item} key={item.id}/>
             </WrapperSlide>
           </SwiperSlide>
         ))}
       </Wrapper>
     </StyledSlider>
+    </>
   )
 }
 

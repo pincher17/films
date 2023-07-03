@@ -7,6 +7,7 @@ import Filtericon from '../../assets/icons/Filtericon.svg'
 import { MainTag } from '../Main/Main.styles';
 import { Button, CrossIcon, FilterIcon, Line1, Line2, NameBlock, Wrapper, WrapperButtonShowMore, WrapperNameBlock } from './AllFilmsPage.styles';
 import Sidebar from '../Sidebar/Sidebar';
+import { setIsVisible } from '../../store/FilmsMainPageSlice';
 
 
 const AllFilmsPage: React.FC = () =>{
@@ -22,6 +23,7 @@ const AllFilmsPage: React.FC = () =>{
   const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
     
       useEffect(() => {
+        dispatch(setIsVisible(false))
         const updateScreenResolution = () => {
           setResolution({ width: window.innerWidth, height: window.innerHeight });
         };

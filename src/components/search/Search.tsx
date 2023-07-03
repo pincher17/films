@@ -20,6 +20,10 @@ const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
+    setSearchList(false)
+  }, []);
+
+  useEffect(() => {
     if (text.length >= 2) {
       dispatch(getFilmSearch(text));
     }
