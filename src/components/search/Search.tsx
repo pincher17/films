@@ -29,8 +29,8 @@ const Search: React.FC = () => {
     }
   }, [text]);
 
-  useSetBodyScroll()
-  useEffect(() => {
+  /* useSetBodyScroll() */
+/*   useEffect(() => {
     const html = document.querySelector("html");
     if (html) {
       if (mobileSearch) {
@@ -41,7 +41,7 @@ const Search: React.FC = () => {
         html.style.position = "static";
       }
     }
-  }, [mobileSearch]);
+  }, [mobileSearch]); */
 
   useEffect(() => {
     if (text.length >= 2 && resultSearch.length > 0) {

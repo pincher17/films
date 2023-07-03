@@ -1,11 +1,10 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { SwiperMainPageProps } from "./SwiperMainPage.types";
-import { NameGenre, SwiperWrapper } from "./SwiperMainPage.styles";
+import { SwiperWrapper } from "./SwiperMainPage.styles";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { getBoevik, getComedy, getDrama, getFilmsThunk, getFilmsTop10, getSeries, getThriller, setIsVisible } from "../../store/FilmsMainPageSlice";
-import { Wrapper } from "../Cards";
-import SkeletonCard from "../SkeletonCard/SkeletonCard";
-const SwiperFilms = React.lazy(() => import('../SwiperFilms/SwiperFilms'));
+import SwiperFilms from "../SwiperFilms/SwiperFilms";
+
 
 const SwiperMainPage: React.FC<SwiperMainPageProps> = () => {
   const dispatch = useAppDispatch()
@@ -58,15 +57,11 @@ const SwiperMainPage: React.FC<SwiperMainPageProps> = () => {
   return (
     <>
   <SwiperWrapper>
-  <Suspense>
   <SwiperFilms cards={top10} title="Топ 10"/>
-    </Suspense>
   </SwiperWrapper>
 
   <SwiperWrapper>
-  <Suspense>
   <SwiperFilms cards={films} title="Фильмы" />
-  </Suspense>
   </SwiperWrapper>
  
 
@@ -74,36 +69,23 @@ const SwiperMainPage: React.FC<SwiperMainPageProps> = () => {
   <>
 
   <SwiperWrapper>
-  <Suspense>
   <SwiperFilms cards={series} title="Сериалы" />
-  </Suspense>
   </SwiperWrapper>
 
   <SwiperWrapper ref={elementRef}>
-  <Suspense>
   <SwiperFilms cards={thriller} title="Триллеры"/>
-  </Suspense>
-  
   </SwiperWrapper>
 
   <SwiperWrapper>
-  <Suspense>
   <SwiperFilms cards={comedy} title="Комедии"/>
-  </Suspense>
-  
   </SwiperWrapper>
 
   <SwiperWrapper>
-  <Suspense>
   <SwiperFilms cards={drama} title="Драма"/>
-  </Suspense>
-  
   </SwiperWrapper>
 
   <SwiperWrapper>
-  <Suspense>
   <SwiperFilms cards={boevik} title="Боевики"/>
-  </Suspense>
   </SwiperWrapper>
   </>
 }
