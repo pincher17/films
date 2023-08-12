@@ -26,9 +26,10 @@ export const WrapperWatchFilm = styled.div`
     }
   }
 `;
-export const Name = styled.div`
+export const Name = styled.h1`
   font-size: 36px;
   font-weight: bolder;
+  margin: 0;
 `;
 export const Flex = styled.div`
   display: flex;

@@ -1,51 +1,63 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { createRef, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../hook';
-import { getFilmById } from '../../store/filmInfoSlice';
-import LayoutFilm from '../layoutFilm/LayoutFilm';
-import SwiperFilms from '../SwiperFilms/SwiperFilms';
-import s from './FilmPage.module.css';
-import { Description, Flex, Iframe, Img, MarginTopTitle, MarginTopValue, Name, NameTitle, PositionAbsolute, SwiperWrapperSimilar, TextValue, TitleDescription, ValueTextSpan, Wrapper, WrapperInfo, WrapperWatchFilm } from './FilmPage.styles';
-import FilmInfoText from '../FilmInfoText/FilmInfoText';
-import FilmPageMobile from '../FilmPageMobile/FilmPageMobile';
+import React, { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hook";
+import { getFilmById } from "../../store/filmInfoSlice";
+import LayoutFilm from "../layoutFilm/LayoutFilm";
+import SwiperFilms from "../SwiperFilms/SwiperFilms";
+import s from "./FilmPage.module.css";
+import {
+  Description,
+  Iframe,
+  SwiperWrapperSimilar,
+  TitleDescription,
+  Wrapper,
+  WrapperInfo,
+  WrapperWatchFilm,
+} from "./FilmPage.styles";
+import FilmInfoText from "../FilmInfoText/FilmInfoText";
+import FilmPageMobile from "../FilmPageMobile/FilmPageMobile";
+import { Helmet } from "react-helmet";
 
-const FilmPage: React.FC = (props) =>{
-  const dispatch = useAppDispatch()
+const FilmPage: React.FC = (props) => {
+  const dispatch = useAppDispatch();
   let { id }: any = useParams();
-  const filmInfoId = useAppSelector(state => state.filmInfo.info)
-  const {preview, countries, genres, ratingKinopoisk} = useAppSelector(state => state.filmInfo)
+  const filmInfoId = useAppSelector((state) => state.filmInfo.info);
+  const { preview, countries, genres, ratingKinopoisk } = useAppSelector(
+    (state) => state.filmInfo
+  );
   const refDataFilm = useRef<HTMLInputElement | null>(null);
-  const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
-
-    
-      useEffect(() => {
-        const updateScreenResolution = () => {
-          setResolution({ width: window.innerWidth, height: window.innerHeight });
-        };
-    
-        // Обновляем разрешение при изменении размеров окна
-        window.addEventListener('resize', updateScreenResolution);
-    
-        // Инициализируем разрешение при первоначальной загрузке
-        updateScreenResolution();
-    
-        // Отписываемся от события при размонтировании компонента
-        return () => {
-          window.removeEventListener('resize', updateScreenResolution);
-        };
-      }, []);
+  const [resolution, setResolution] = React.useState<any>({
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
-  dispatch(getFilmById(id))
+    const updateScreenResolution = () => {
+      setResolution({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    // Обновляем разрешение при изменении размеров окна
+    window.addEventListener("resize", updateScreenResolution);
+
+    // Инициализируем разрешение при первоначальной загрузке
+    updateScreenResolution();
+
+    // Отписываемся от события при размонтировании компонента
+    return () => {
+      window.removeEventListener("resize", updateScreenResolution);
+    };
+  }, []);
+
+  useEffect(() => {
+    dispatch(getFilmById(id));
   }, [id]);
 
   useEffect(() => {
     refDataFilm.current?.setAttribute("data-kinopoisk", `${id}`);
   }, [id, resolution.width]);
 
-
-/*   useEffect(() => {
+  /*   useEffect(() => {
     const script = document.createElement("script");
     //script.src = "//yohoho.cc/yo.js";
     script.src = "https://v1687693103.bazon.site/js/bazon.js";
@@ -55,55 +67,69 @@ const FilmPage: React.FC = (props) =>{
     };
     }, [id]); */
 
+  if (resolution.width && resolution.width < 850) {
+    return <FilmPageMobile />;
+  }
 
-    
-
-
-    if(resolution.width && resolution.width < 850){
-      
-      return <FilmPageMobile />
-    }
-
-    return (
-        <Wrapper>
-          <LayoutFilm>
-          <WrapperInfo>
-              <FilmInfoText 
-                countries={countries} 
-                filmInfoId={filmInfoId} 
-                genres={genres} 
-                ratingKinopoisk={ratingKinopoisk}
-                resolution={resolution}
-               />
+  return (
+    <Wrapper>
+      <Helmet>
+        {filmInfoId?.name && filmInfoId?.year && (
+          <title>{`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}</title>
+        )}
+        <meta name="description" content={`${filmInfoId?.description}`} />
+      </Helmet>
+      <LayoutFilm>
+        <WrapperInfo>
+          <FilmInfoText
+            countries={countries}
+            filmInfoId={filmInfoId}
+            genres={genres}
+            ratingKinopoisk={ratingKinopoisk}
+            resolution={resolution}
+          />
           <WrapperWatchFilm>
             <div>
-              <img className={s.img} src={preview} alt="" />
+              <img className={s.img} src={preview} alt={filmInfoId?.name} />
             </div>
             <div key={id.toString()}>
               {/* <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div> */}
               {/* <div key={id} ref={refDataFilm} id='bazon' data-width='600' data-height='400'></div> */}
-            <Iframe src={`https://v1687699810.bazon.site/kp/${id}?noads=1`} frameBorder="0" scrolling="no" allowFullScreen referrerPolicy="origin" width="500" height="352"></Iframe>
+              <Iframe
+                src={`https://v1687699810.bazon.site/kp/${id}?noads=1`}
+                frameBorder="0"
+                scrolling="no"
+                allowFullScreen
+                referrerPolicy="origin"
+                width="500"
+                height="352"
+              ></Iframe>
             </div>
           </WrapperWatchFilm>
-          </WrapperInfo>
+        </WrapperInfo>
 
-          {resolution.width > 1150 || resolution.width < 850
-          ?<>
-          <TitleDescription>Описание:</TitleDescription>
-          <Description>{filmInfoId?.description}</Description>
+        {resolution.width > 1150 || resolution.width < 850 ? (
+          <>
+            <TitleDescription>Описание:</TitleDescription>
+            <Description>{filmInfoId?.description}</Description>
           </>
-          :''
-          }
+        ) : (
+          ""
+        )}
 
-          <SwiperWrapperSimilar>
-          {filmInfoId?.similarMovies.length ? <><TitleDescription>Похожие</TitleDescription><SwiperFilms cards={filmInfoId?.similarMovies} /></> : ''}
-          </SwiperWrapperSimilar>
-          </LayoutFilm>
-            
-        </Wrapper>
-    
-    )
-}
+        <SwiperWrapperSimilar>
+          {filmInfoId?.similarMovies.length ? (
+            <>
+              <TitleDescription>Похожие</TitleDescription>
+              <SwiperFilms cards={filmInfoId?.similarMovies} />
+            </>
+          ) : (
+            ""
+          )}
+        </SwiperWrapperSimilar>
+      </LayoutFilm>
+    </Wrapper>
+  );
+};
 
 export default FilmPage;
-

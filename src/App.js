@@ -11,6 +11,7 @@ import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 import AllBlur from './components/AllBlur/AllBlur';
 import { useAppDispatch } from './hook';
 import { setWidthDevice } from './store/widthDeviceSlice';
+import { Helmet } from 'react-helmet';
 
 
 function App() {
@@ -35,6 +36,10 @@ function App() {
 
   return (
     <BrowserRouter>
+    <Helmet>
+        <title>Filmhub</title>
+        <meta name="description" content="Смотрите новинки кино и сериалов в онлайн кинотеатре Filmhub. Большой выбор фильмов, высокое качество видео и звука." />
+      </Helmet>
     <AllBlur />
       <Header />
       <Routes>
