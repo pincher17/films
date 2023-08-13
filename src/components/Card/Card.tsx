@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Img, ImgWrap, ImgWrapper, Rating, RatingNum, Wrapper, Year } from './Card.styles';
 import { CardProps } from './Card.types';
-import { AspectRatio } from '@mui/icons-material';
+import roundNumber from '../../helpers/rounding';
 
 
 const Card: React.FC<CardProps> = (props) =>{
@@ -15,6 +15,12 @@ const {
     rating
   } = props.card
 
+  let ratingKp
+
+  if(rating){
+    ratingKp = roundNumber(rating.kp, 1)
+  }
+
     return (
     <Wrapper key={id}>
             <NavLink to={'/film/' + id }>
@@ -22,9 +28,9 @@ const {
             <ImgWrap>
             {poster.previewUrl && <Img src={poster.previewUrl} alt={name} />}
             </ImgWrap>
-            {rating?.kp &&
+            {ratingKp &&
             <Rating>
-                <RatingNum>{rating?.kp}</RatingNum>
+                <RatingNum>{ratingKp}</RatingNum>
             </Rating>}
             <p>{name}</p>
             <Year>{year}</Year>

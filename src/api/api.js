@@ -1,7 +1,5 @@
 import * as axios from 'axios';
 
-const TOKEN = "XR49Z74-EYEMXHC-K3763BK-VPTYA9M"
-
 
 const instance = axios.create({
     baseURL: 'https://api.kinopoisk.dev/v1.3/',

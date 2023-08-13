@@ -11,9 +11,12 @@ import {
   ValueTextSpan,
 } from "../FilmPage/FilmPage.styles";
 import { FilmInfoTextProps } from "./FilmInfoText.types";
+import roundNumber from "../../helpers/rounding";
 
 const FilmInfoText: React.FC<FilmInfoTextProps> = (props) => {
   const { filmInfoId, countries, genres, ratingKinopoisk, resolution } = props;
+
+  const ratingKp = roundNumber(ratingKinopoisk, 1)
 
   return (
     <div>
@@ -60,7 +63,7 @@ const FilmInfoText: React.FC<FilmInfoTextProps> = (props) => {
       <Flex>
         <MarginTopTitle>Рейтинг Кинопоиска:&nbsp;</MarginTopTitle>
         <>
-          <MarginTopValue>{ratingKinopoisk}</MarginTopValue>
+          <MarginTopValue>{ratingKp}</MarginTopValue>
         </>
       </Flex>
 

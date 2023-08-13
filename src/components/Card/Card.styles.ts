@@ -15,12 +15,12 @@ export const Img = styled.img`
     width: 100%;
     height: 100%;
   border-radius: 15px;
-  background-color: #424242;;
+  background-color: #424242;
 `
 
 export const Rating = styled.div`
   width: 44px;
-  height: 26px;
+  height: 29px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +32,7 @@ export const Rating = styled.div`
 `
 export const RatingNum = styled.span`
   color: white;
+  font-weight: 800;
 `
 export const Year = styled.div`
   margin-bottom: 50px;
@@ -44,5 +45,6 @@ export const ImgWrap = styled.div`
     /* 16:9 aspect ratio */
     padding-bottom: 150%;
   }
+  
 `
 
