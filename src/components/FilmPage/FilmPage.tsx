@@ -90,7 +90,7 @@ const FilmPage: React.FC = (props) => {
           />
           <WrapperWatchFilm>
             <div>
-              <img className={s.img} src={preview} alt={filmInfoId?.name} />
+              <img itemProp= "image" className={s.img} src={preview} alt={filmInfoId?.name} />
             </div>
             <div key={id.toString()}>
               {/* <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div> */}
