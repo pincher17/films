@@ -35,7 +35,9 @@ export const RatingNum = styled.span`
   font-weight: 800;
 `
 export const Year = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 55px;
+  margin-top: -5px;
+  color: #f8f8f8a6;;
 `
 export const ImgWrap = styled.div`
   position: relative;

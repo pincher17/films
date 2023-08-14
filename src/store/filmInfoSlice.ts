@@ -25,7 +25,7 @@ const filmInfo = createSlice({
         addFilmInfo(state, action:PayloadAction<FilmInfoType>) {
             
             state.info = action.payload;
-            state.preview = action.payload.poster.previewUrl
+            state.preview = action.payload.poster.url
             state.countries = action.payload.countries
             state.genres = action.payload.genres
             state.ratingKinopoisk = action.payload.rating.kp
