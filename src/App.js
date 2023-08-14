@@ -11,7 +11,7 @@ import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 import AllBlur from './components/AllBlur/AllBlur';
 import { useAppDispatch } from './hook';
 import { setWidthDevice } from './store/widthDeviceSlice';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 
 function App() {

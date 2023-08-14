@@ -17,7 +17,7 @@ import {
 } from "./FilmPage.styles";
 import FilmInfoText from "../FilmInfoText/FilmInfoText";
 import FilmPageMobile from "../FilmPageMobile/FilmPageMobile";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const FilmPage: React.FC = (props) => {
   const dispatch = useAppDispatch();
@@ -74,9 +74,10 @@ const FilmPage: React.FC = (props) => {
   return (
     <Wrapper>
       <Helmet>
-        {filmInfoId?.name && filmInfoId?.year && (
+        {filmInfoId?.name && filmInfoId?.year ? (
           <title>{`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}</title>
-        )}
+        ):<title>Filmhub</title>
+        }
         <meta name="description" content={`${filmInfoId?.description}`} />
       </Helmet>
       <LayoutFilm>
