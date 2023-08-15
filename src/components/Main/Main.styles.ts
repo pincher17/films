@@ -32,6 +32,6 @@ export const MainTag = styled.main`
 export const H1 = styled.h1`
     font-size: 28px;
     @media (max-width: 850px){
-    margin-top: -15px;
+    margin-top: 25px;
   }
 `;
