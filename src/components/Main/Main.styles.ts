@@ -25,4 +25,13 @@ export const MainTag = styled.main`
     padding-left: 15px;
     padding-right: 15px;
   }
+  &>p{
+      margin-bottom: 80px;
+    }
 `
+export const H1 = styled.h1`
+    font-size: 28px;
+    @media (max-width: 850px){
+    margin-top: -15px;
+  }
+`;

@@ -78,7 +78,11 @@ const FilmPage: React.FC = (props) => {
           <title>{`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}</title>
         ):<title>Filmhub</title>
         }
-        <meta name="description" content={`${filmInfoId?.description}`} />
+        { filmInfoId?.description ?
+          <meta name="description" content={`${filmInfoId?.description}`}/>
+          : <meta name="description" content="Смотрите новинки кино и сериалов в онлайн кинотеатре Filmhub. 
+          Большой выбор фильмов, высокое качество видео и звука." />
+        } 
       </Helmet>
       <LayoutFilm>
         <WrapperInfo>
