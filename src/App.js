@@ -38,7 +38,8 @@ function App() {
     <BrowserRouter>
     <Helmet>
         <title>Filmhub</title>
-        <meta name="description" content="Смотрите новинки кино и сериалов в онлайн кинотеатре Filmhub. Большой выбор фильмов, высокое качество видео и звука." />
+        <meta name="description" content="Смотрите новинки кино и сериалов в онлайн кинотеатре Filmhub. 
+        Большой выбор фильмов, высокое качество видео и звука." />
       </Helmet>
     <AllBlur />
       <Header />
