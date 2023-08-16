@@ -45,9 +45,8 @@ const FilmPageMobile: React.FC = (props) => {
           <title>{`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}</title>
         ):<title>Filmhub</title>
         }
-        <meta name="title" content="Filmhub"></meta>
         { filmInfoId?.description ?
-          <meta name="description" content={`${filmInfoId.description}`} data-react-helmet="true"/>
+          <meta name="description" content={`${filmInfoId.description}`}/>
           : ''
         } 
       </Helmet>
