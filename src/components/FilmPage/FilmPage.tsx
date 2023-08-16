@@ -78,10 +78,10 @@ const FilmPage: React.FC = (props) => {
           <title>{`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}</title>
         ):<title>Filmhub</title>
         }
+        <meta name="title" content="Filmhub"></meta>
         { filmInfoId?.description ?
-          <meta name="description" content={`${filmInfoId?.description}`}/>
-          : <meta name="description" content="Смотрите новинки кино и сериалов в онлайн кинотеатре Filmhub. 
-          Большой выбор фильмов, высокое качество видео и звука." />
+          <meta name="description" content={`${filmInfoId.description}`} data-react-helmet="true"/>
+          : ''
         } 
       </Helmet>
       <LayoutFilm>
