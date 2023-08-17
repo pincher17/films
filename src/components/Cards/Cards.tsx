@@ -13,7 +13,7 @@ const Cards: React.FC<CardsProps> = (props) =>{
     return (
     <Wrapper>
         {props.cards.map((item)=>
-         <Card card={item} />
+         item.poster.url ? <Card card={item} /> : null
         )}
         {loading && arraySkeletonCards.map(()=>
          <SkeletonCard />
