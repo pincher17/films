@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useRef } from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { getFilmById } from "../../store/filmInfoSlice";
@@ -22,6 +22,7 @@ const FilmPageMobile: React.FC = (props) => {
   const dispatch = useAppDispatch();
   let { id }: any = useParams();
   const filmInfoId = useAppSelector((state) => state.filmInfo.info);
+  const [isLoaded, setIsLoaded] = useState(false);
   const { preview, countries, genres, ratingKinopoisk } = useAppSelector(
     (state) => state.filmInfo
   );
@@ -31,6 +32,34 @@ const FilmPageMobile: React.FC = (props) => {
     height: 0,
   });
   const [watchFilm, setWatchFilm] = React.useState<boolean>(false);
+
+  useEffect(() => {
+    // Устанавливаем свойство YandexRotorSettings
+    (window as any).YandexRotorSettings = {
+      WaiterEnabled: true,
+      IsLoaded: function() {
+        return document.title.length > 7;
+      }
+    };
+    
+    // Проверяем загруженность контента в элементе title
+    const checkTitleLoaded = () => {
+      if (document.title.length > 7) {
+        setIsLoaded(true);
+      }
+    };
+
+    // Вызываем функцию проверки при монтировании компонента
+    checkTitleLoaded();
+
+    // Добавляем слушателя события, чтобы отслеживать изменения заголовка
+    document.addEventListener('DOMSubtreeModified', checkTitleLoaded);
+
+    // Удаляем слушателя события при размонтировании компонента
+    return () => {
+      document.removeEventListener('DOMSubtreeModified', checkTitleLoaded);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getFilmById(id));

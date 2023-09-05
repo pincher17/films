@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { getFilmById } from "../../store/filmInfoSlice";
@@ -23,6 +23,7 @@ const FilmPage: React.FC = (props) => {
   const dispatch = useAppDispatch();
   let { id }: any = useParams();
   const filmInfoId = useAppSelector((state) => state.filmInfo.info);
+  const [isLoaded, setIsLoaded] = useState(false);
   const { preview, countries, genres, ratingKinopoisk } = useAppSelector(
     (state) => state.filmInfo
   );
@@ -31,6 +32,37 @@ const FilmPage: React.FC = (props) => {
     width: 0,
     height: 0,
   });
+
+
+  useEffect(() => {
+    // Устанавливаем свойство YandexRotorSettings
+    (window as any).YandexRotorSettings = {
+      WaiterEnabled: true,
+      IsLoaded: function() {
+        return document.title.length > 7;
+      }
+    };
+    
+    // Проверяем загруженность контента в элементе title
+    const checkTitleLoaded = () => {
+      if (document.title.length > 7) {
+        setIsLoaded(true);
+        console.log('WaiterEnabled:', (window as any).YandexRotorSettings)
+      }
+    };
+
+    // Вызываем функцию проверки при монтировании компонента
+    checkTitleLoaded();
+
+    // Добавляем слушателя события, чтобы отслеживать изменения заголовка
+    document.addEventListener('DOMSubtreeModified', checkTitleLoaded);
+
+    // Удаляем слушателя события при размонтировании компонента
+    return () => {
+      document.removeEventListener('DOMSubtreeModified', checkTitleLoaded);
+    };
+  }, []);
+
 
   useEffect(() => {
     const updateScreenResolution = () => {
@@ -70,6 +102,11 @@ const FilmPage: React.FC = (props) => {
   if (resolution.width && resolution.width < 850) {
     return <FilmPageMobile />;
   }
+
+  
+
+  
+
 
   return (
     <Wrapper>
