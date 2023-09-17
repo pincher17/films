@@ -6,7 +6,6 @@ import s from "./SearchInput.module.css";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { ButtonSearch, Cancel, Image, ImageWrapper, Name, RatingNumer, SearchInput, SearchList, SearchWrapper } from "./Search.styles";
 import { Year } from "../Card";
-import useSetBodyScroll from "../../hooks/useSetBodyScroll";
 
 
 const Search: React.FC = () => {
@@ -81,7 +80,10 @@ const Search: React.FC = () => {
   };
 
   const onBlur = () => {
-    if(widthDevice > 850){
+    /* if(widthDevice > 850){
+      setSearchList(false)
+    } */
+    if(!mobileSearch){
       setSearchList(false)
     }
   };
