@@ -81,7 +81,7 @@ const Search: React.FC = () => {
 
   const onBlur = () => {
     /* if(widthDevice > 850){
-      setSearchList(false)
+      setSearchList(false);
     } */
     if(!mobileSearch){
       setSearchList(false)
