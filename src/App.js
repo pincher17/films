@@ -12,6 +12,7 @@ import AllBlur from './components/AllBlur/AllBlur';
 import { useAppDispatch } from './hook';
 import { setWidthDevice } from './store/widthDeviceSlice';
 import { Helmet } from 'react-helmet-async';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route path='/films' element={<AllFilmsPage />}/>
       </Routes>
       <MobileNavigation />
+      <Footer />
   </BrowserRouter>
   );
 }

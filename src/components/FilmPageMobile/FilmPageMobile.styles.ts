@@ -80,7 +80,7 @@ export const TitleDescription = styled.div`
 export const Description = styled.p`
   margin-top: 15px;
   font-size: 18px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
     width: 100%;
 `;
 
