@@ -7,6 +7,8 @@ export const FooterWrap = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 15;
   @media (max-width: 850px){
     padding-bottom: 60px;
   }
