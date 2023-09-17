@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterWrap = styled.footer`
   height: 60px;
-  margin-top: -60px;
+  margin-top: -30px;
   background-color: #242424;
   display: flex;
   align-items: center;
