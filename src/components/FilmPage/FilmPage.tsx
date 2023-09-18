@@ -118,6 +118,9 @@ const FilmPage: React.FC = (props) => {
         { filmInfoId?.description ?
           <meta name="description" content={`${filmInfoId.description}`}/>
           : ''
+        }
+        {
+          <meta property="og:image" content={`${preview}`}/>
         } 
       </Helmet>
       <LayoutFilm>

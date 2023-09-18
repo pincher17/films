@@ -78,6 +78,9 @@ const FilmPageMobile: React.FC = (props) => {
           <meta name="description" content={`${filmInfoId.description}`}/>
           : ''
         } 
+        {
+          <meta property="og:image" content={`${preview}`}/>
+        } 
       </Helmet>
       {watchFilm && <MobileWatchFilm id={id} setWatchFilm={setWatchFilm} />}
       <LayoutFilm>
