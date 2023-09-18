@@ -13,6 +13,7 @@ import { useAppDispatch } from './hook';
 import { setWidthDevice } from './store/widthDeviceSlice';
 import { Helmet } from 'react-helmet-async';
 import Footer from './components/Footer/Footer';
+import ScrollToTop from './helpers/ScrollToTop';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
       </Helmet>
     <AllBlur />
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Main />}/>
         <Route path='/test' element={<Test />}/>
