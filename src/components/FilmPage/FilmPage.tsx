@@ -113,7 +113,7 @@ const FilmPage: React.FC = (props) => {
       <Helmet>
         {filmInfoId?.name && filmInfoId?.year ? (
           <title>{`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}</title>
-        ):<title>Filmhub</title>
+        ):<title>Filmhub - смотреть фильмы бесплатно онлайн в хорошем качестве</title>
         }
         { filmInfoId?.description ?
           <meta name="description" content={`${filmInfoId.description}`}/>
