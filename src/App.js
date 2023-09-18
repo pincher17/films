@@ -38,7 +38,7 @@ function App() {
   return (
     <BrowserRouter>
     <Helmet>
-        <title>Filmhub</title>
+        <title>Filmhub - смотреть фильмы бесплатно онлайн в хорошем качестве</title>
         <meta name="description" content="Смотрите новинки кино и сериалов в онлайн кинотеатре Filmhub. 
         Большой выбор фильмов, высокое качество видео и звука." />
       </Helmet>
