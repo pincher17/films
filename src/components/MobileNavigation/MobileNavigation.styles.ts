@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { NavigationItemProps } from './MobileNavigation.types';
 import { ReactComponent as Homeicon } from '../../assets/icons/home.svg'
-import { ReactComponent as HomeiconActive } from '../../assets/icons/homeActive.svg'
 import { ReactComponent as Searchicon } from '../../assets/icons/search.svg'
 import { ReactComponent as Allfilmsicon } from '../../assets/icons/AllFilmsIcon.svg'
 import { Link } from 'react-router-dom';

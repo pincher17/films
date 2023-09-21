@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { AllBlur, AllFilmsIcon, HomeIcon, NavigationContainer, NavigationItem, SearchIcon, StyledLink } from './MobileNavigation.styles';
-import { Link, useLocation } from 'react-router-dom';
-import Search from '../search/Search';
+import React from 'react';
+import { AllFilmsIcon, HomeIcon, NavigationContainer, NavigationItem, SearchIcon, StyledLink } from './MobileNavigation.styles';
+import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import { setMobileSearch } from '../../store/searchSlice';
 

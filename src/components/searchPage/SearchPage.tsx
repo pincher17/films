@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hook';
 import {  getFilmSearchPage, refreshResultSearchPage } from '../../store/searchSlice';
 import Cards from '../Cards/Cards';
-import Layout from '../layout/Layout';
 import s from './SearchPage.module.css';
 import { MainTag } from '../Main/Main.styles';
 
