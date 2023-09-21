@@ -14,7 +14,6 @@ const Search: React.FC = () => {
   const dispatch = useAppDispatch();
   const resultSearch = useAppSelector((state) => state.search.resultSearch);
   const mobileSearch = useAppSelector((state) => state.search.mobileSearch);
-  const widthDevice = useAppSelector((state) => state.widthDevice.width);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -90,6 +89,7 @@ const Search: React.FC = () => {
 
   const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
+      closeSearch()
       navigate(`/search/${text}`);
       inputRef.current?.blur();
     }

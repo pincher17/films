@@ -5,6 +5,7 @@ import {  getFilmSearchPage, refreshResultSearchPage } from '../../store/searchS
 import Cards from '../Cards/Cards';
 import Layout from '../layout/Layout';
 import s from './SearchPage.module.css';
+import { MainTag } from '../Main/Main.styles';
 
 
 const SearchPage: React.FC = () =>{
@@ -36,7 +37,7 @@ const SearchPage: React.FC = () =>{
 
 console.log(page)
     return (
-    <Layout>
+    <MainTag>
     <div className={s.wrapper}>
         <div className={s.wrapper_search_group}>
             <div className={s.search_group}>
@@ -48,7 +49,7 @@ console.log(page)
     <Cards cards={resultSearch} />
     {totalPages === page ? <></> : <div className={s.wrapper_btn_show_more}><button onClick={showMore} className={s.btn}>Показать еще</button></div>}
     </div>
-    </Layout>
+    </MainTag>
     )
 }
 

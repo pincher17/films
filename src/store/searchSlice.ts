@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { filmsApi } from '../api/api';
 import { ArrayFilmsType, FilmsType } from '../types/FilmsType';
+import { setLoading } from './Loading';
 
 type initialStateType ={
     resultSearch: Array<FilmsType>
@@ -67,13 +68,13 @@ export const getFilmSearch = (query: string) =>{
 export const getFilmSearchPage = (query: string, page: number) =>{
     return (dispatch: any) => {
 
-        //dispatch(setFetching(true))
+        dispatch(setLoading(true))
         filmsApi.getFilmSearch(query, page).then((response: any) =>{
             dispatch(addResultSearchPage(response.data.docs))
             dispatch(addResultSearchTotal(response.data.total))
             dispatch(addCurrentPage(response.data.page))
             dispatch(addTotalPages(response.data.pages))
-            //dispatch(setFetching(false))
+            dispatch(setLoading(false))
     })
     }
 }
