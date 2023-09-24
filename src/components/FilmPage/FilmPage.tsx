@@ -11,6 +11,7 @@ import {
   Iframe,
   SwiperWrapperSimilar,
   TitleDescription,
+  TrailerWrapper,
   Wrapper,
   WrapperInfo,
   WrapperWatchFilm,
@@ -18,6 +19,7 @@ import {
 import FilmInfoText from "../FilmInfoText/FilmInfoText";
 import FilmPageMobile from "../FilmPageMobile/FilmPageMobile";
 import { Helmet } from "react-helmet-async";
+import Trailer from "../Trailer/Trailer";
 
 const FilmPage: React.FC = (props) => {
   const dispatch = useAppDispatch();
@@ -32,36 +34,6 @@ const FilmPage: React.FC = (props) => {
     width: 0,
     height: 0,
   });
-
-
-  useEffect(() => {
-    // Устанавливаем свойство YandexRotorSettings
-    (window as any).YandexRotorSettings = {
-      WaiterEnabled: true,
-      IsLoaded: function() {
-        return document.title.length > 7;
-      }
-    };
-    
-    // Проверяем загруженность контента в элементе title
-    const checkTitleLoaded = () => {
-      if (document.title.length > 7) {
-        setIsLoaded(true);
-        console.log('WaiterEnabled:', (window as any).YandexRotorSettings)
-      }
-    };
-
-    // Вызываем функцию проверки при монтировании компонента
-    checkTitleLoaded();
-
-    // Добавляем слушателя события, чтобы отслеживать изменения заголовка
-    document.addEventListener('DOMSubtreeModified', checkTitleLoaded);
-
-    // Удаляем слушателя события при размонтировании компонента
-    return () => {
-      document.removeEventListener('DOMSubtreeModified', checkTitleLoaded);
-    };
-  }, []);
 
 
   useEffect(() => {
@@ -150,7 +122,10 @@ const FilmPage: React.FC = (props) => {
               ></Iframe>
             </div>
           </WrapperWatchFilm>
+          {filmInfoId?.videos && filmInfoId?.videos.trailers[0] ? <Trailer src={`${filmInfoId?.videos.trailers[0].url}`}/>  : ''}
         </WrapperInfo>
+
+        
 
         {resolution.width > 1150 || resolution.width < 850 ? (
           <>

@@ -108,12 +108,21 @@ display: flex;
   text-decoration: none;
   border: 1px solid rgb(184, 22, 22);
   border-radius: 5px;
-  width: 60%;
+  width: 80%;
   height: 30px;
   margin: 0 auto;
   margin-bottom: 45px;
   &:active {
           background: rgb(147 14 14);
           border: 1px solid rgb(147 14 14);
+        }
+`;
+
+export const TrailerButtonWatch = styled(ButtonWatch)`
+  background-color: rgb(184 22 22 / 0%);
+  border: 2px solid rgb(184, 22, 22);
+  &:active {
+          background: rgb(184 22 22);
+          border: 2px solid rgb(147 14 14);
         }
 `;

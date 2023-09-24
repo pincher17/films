@@ -10,6 +10,7 @@ import {
   Description,
   SwiperWrapperSimilar,
   TitleDescription,
+  TrailerButtonWatch,
   Wrapper,
   WrapperInfo,
   WrapperWatchFilm,
@@ -17,6 +18,7 @@ import {
 import FilmInfoText from "../FilmInfoText/FilmInfoText";
 import MobileWatchFilm from "../MobileWatchFilm/MobileWatchFilm";
 import { Helmet } from "react-helmet-async";
+import TrailerMobileWatch from "../TrailerMobileWatch/TrailerMobileWatch";
 
 const FilmPageMobile: React.FC = (props) => {
   const dispatch = useAppDispatch();
@@ -31,12 +33,14 @@ const FilmPageMobile: React.FC = (props) => {
     height: 0,
   });
   const [watchFilm, setWatchFilm] = React.useState<boolean>(false);
+  const [watchTrailer, setWatchTrailer] = React.useState<boolean>(false);
 
   useEffect(() => {
     dispatch(getFilmById(id));
   }, [id]);
 
   const watchFilmStart = () => setWatchFilm(true);
+  const watchTrailerStart = () => setWatchTrailer(true);
 
   return (
     <Wrapper>
@@ -54,6 +58,7 @@ const FilmPageMobile: React.FC = (props) => {
         } 
       </Helmet>
       {watchFilm && <MobileWatchFilm id={id} setWatchFilm={setWatchFilm} />}
+      {watchTrailer && <TrailerMobileWatch id={id} setWatchTrailer={setWatchTrailer} src={`${filmInfoId?.videos.trailers[0].url}`} />}
       <LayoutFilm>
         <WrapperInfo>
           <WrapperWatchFilm>
@@ -70,6 +75,7 @@ const FilmPageMobile: React.FC = (props) => {
           </WrapperWatchFilm>
         </WrapperInfo>
         <ButtonWatch onClick={watchFilmStart}>Смотреть</ButtonWatch>
+        {filmInfoId?.videos && filmInfoId?.videos.trailers[0] ? <TrailerButtonWatch onClick={watchTrailerStart}>Трейлер</TrailerButtonWatch> : ''}
         <TitleDescription>Описание:</TitleDescription>
         <Description>{filmInfoId?.description}</Description>
 

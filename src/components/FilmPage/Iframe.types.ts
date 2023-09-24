@@ -3,8 +3,8 @@ export interface IframeProps {
     frameBorder: string
     scrolling: string
     referrerPolicy: string
-    width: string
-    height: string
+    width?: string
+    height?: string
     allowFullScreen: any
 }
 

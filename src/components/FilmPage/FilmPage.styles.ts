@@ -108,3 +108,14 @@ export const Iframe = styled.iframe<IframeProps>`
   width: 85% !important;
   }
 `
+
+export const TrailerWrapper = styled.div`
+  height: 0px;
+  padding-bottom: 56.2%;
+  position: relative;
+  & > iframe{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+`;
