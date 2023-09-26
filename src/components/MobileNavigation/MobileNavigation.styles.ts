@@ -32,14 +32,15 @@ export const NavigationContainer = styled.div`
   align-items: center;
   position: fixed;
   bottom: -3px;
-  left: 0;
+  left: -2px;
   width: 100%;
-  height: 60px;
+  height: 65px;
   background-color: #181818;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   background: rgb(21 21 21 / 83%);
-  padding-bottom: 5px;
+  padding: 2px calc(24px - (calc(50px - 2px * 2) - 28px) / 2) env(safe-area-inset-bottom);
+  padding-left: 0px;
   z-index: 20;
   @media (max-width: 850px){
   display: flex;
