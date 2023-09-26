@@ -39,6 +39,7 @@ export const NavigationContainer = styled.div`
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   background: rgb(21 21 21 / 83%);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
   padding: 2px calc(24px - (calc(50px - 2px * 2) - 28px) / 2) env(safe-area-inset-bottom);
   padding-left: 0px;
   z-index: 20;
