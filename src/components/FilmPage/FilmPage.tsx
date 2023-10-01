@@ -20,6 +20,8 @@ import FilmInfoText from "../FilmInfoText/FilmInfoText";
 import FilmPageMobile from "../FilmPageMobile/FilmPageMobile";
 import { Helmet } from "react-helmet-async";
 import Trailer from "../Trailer/Trailer";
+import translateCategory from "../../helpers/translateCategory";
+import roundNumber from "../../helpers/rounding";
 
 const FilmPage: React.FC = (props) => {
   const dispatch = useAppDispatch();
@@ -87,13 +89,33 @@ const FilmPage: React.FC = (props) => {
           <title>{`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}</title>
         ):<title>Filmhub - смотреть фильмы бесплатно онлайн в хорошем качестве</title>
         }
-        { filmInfoId?.description ?
-          <meta name="description" content={`${filmInfoId.description}`}/>
+        { filmInfoId?.name && filmInfoId?.year ?
+          <meta name="description" content={`Смотрите онлайн ${translateCategory(filmInfoId.type)} ${filmInfoId.name} (${filmInfoId.year}) года в хорошем качестве HD, рейтинг кинопоиска: ${roundNumber(ratingKinopoisk, 1)}`}/>
           : ''
         }
+        
+        {filmInfoId?.name && filmInfoId?.year ? (
+          <meta name="keywords" content={`${filmInfoId.name}, ${filmInfoId.year}, ${countries}, ${filmInfoId.enName}, ${translateCategory(filmInfoId.type)}, смотреть, онлайн, бесплатно, hd`}></meta>
+        ): <meta name="keywords" content={`смотреть, онлайн, бесплатно, hd`}></meta>}
         {
           <meta property="og:image" content={`${preview}`}/>
+        }
+        {filmInfoId?.name && filmInfoId?.year ? (
+          <meta property="og:title" content={`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}></meta>
+        ): ''
         } 
+        { filmInfoId?.description ?
+          <meta property="og:description" content={`${filmInfoId.description}`}/>
+          : ''
+        }
+        {filmInfoId?.name && filmInfoId?.year ? (
+          <meta property="twitter:title" content={`${filmInfoId.name} ${filmInfoId.year} г. - смотреть онлайн на Filmhub`}></meta>
+        ): ''
+        } 
+        { filmInfoId?.description ?
+          <meta property="twitter:description" content={`${filmInfoId.description}`}/>
+          : ''
+        }
       </Helmet>
       <LayoutFilm>
         <WrapperInfo>
