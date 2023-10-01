@@ -12,6 +12,10 @@ export const IframeTrailer = styled('iframe')`
 export const WrapperButtonTrailer = styled('div')`
  margin-bottom: 35px;
     margin-top: 15px;
+    @media (max-width: 1150px){
+      position: absolute;
+      top: 640px;
+  }
 `
 export const ButtonTrailer = styled('div')`
  background-color: rgb(184,22,22);

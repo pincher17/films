@@ -21,11 +21,13 @@ import { Helmet } from "react-helmet-async";
 import TrailerMobileWatch from "../TrailerMobileWatch/TrailerMobileWatch";
 import translateCategory from "../../helpers/translateCategory";
 import roundNumber from "../../helpers/rounding";
+import SkeletonImage from "../SkeletonImage/SkeletonImage";
 
 const FilmPageMobile: React.FC = (props) => {
   const dispatch = useAppDispatch();
   let { id }: any = useParams();
   const filmInfoId = useAppSelector((state) => state.filmInfo.info);
+  const loading = useAppSelector(state => state.loading.loading);
   const { preview, countries, genres, ratingKinopoisk } = useAppSelector(
     (state) => state.filmInfo
   );
@@ -85,7 +87,7 @@ const FilmPageMobile: React.FC = (props) => {
         <WrapperInfo>
           <WrapperWatchFilm>
             <div>
-              <img className={s.img} src={preview} alt="" />
+              {loading ? <SkeletonImage /> : <img className={s.img} src={preview} alt={filmInfoId?.name} />}
             </div>
             <FilmInfoText
               countries={countries}

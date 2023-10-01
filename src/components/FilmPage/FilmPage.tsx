@@ -22,12 +22,13 @@ import { Helmet } from "react-helmet-async";
 import Trailer from "../Trailer/Trailer";
 import translateCategory from "../../helpers/translateCategory";
 import roundNumber from "../../helpers/rounding";
+import SkeletonImage from "../SkeletonImage/SkeletonImage";
 
 const FilmPage: React.FC = (props) => {
   const dispatch = useAppDispatch();
   let { id }: any = useParams();
   const filmInfoId = useAppSelector((state) => state.filmInfo.info);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const loading = useAppSelector(state => state.loading.loading);
   const { preview, countries, genres, ratingKinopoisk } = useAppSelector(
     (state) => state.filmInfo
   );
@@ -125,7 +126,10 @@ const FilmPage: React.FC = (props) => {
           />
           <WrapperWatchFilm>
             <div>
-              <img itemProp= "image" className={s.img} src={preview} alt={filmInfoId?.name} />
+              {
+                loading ? <SkeletonImage /> : <img itemProp= "image" className={s.img} src={preview} alt={filmInfoId?.name} />
+              }
+              
             </div>
             <div key={id.toString()}>
               {/* <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div> */}

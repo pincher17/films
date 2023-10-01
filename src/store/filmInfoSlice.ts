@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { filmsApi } from '../api/api';
 import { FilmInfoType } from '../types/film';
+import { setLoading } from './Loading';
 
 type initialStateType ={
     info: FilmInfoType | null
@@ -39,10 +40,10 @@ export const {addFilmInfo} = filmInfo.actions;
 export const getFilmById = (id: any) =>{
     return (dispatch:any) => {
 
-        //dispatch(setFetching(true))
+        dispatch(setLoading(true))
         filmsApi.getFilmById(id).then((response: any) =>{
             dispatch(addFilmInfo(response.data))
-            //dispatch(setFetching(false))
+            dispatch(setLoading(false))
     })
     }
 }
