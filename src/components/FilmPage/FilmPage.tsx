@@ -79,9 +79,6 @@ const FilmPage: React.FC = (props) => {
 
   
 
-  
-
-
   return (
     <Wrapper>
       <Helmet>
@@ -95,7 +92,7 @@ const FilmPage: React.FC = (props) => {
         }
         
         {filmInfoId?.name && filmInfoId?.year ? (
-          <meta name="keywords" content={`${filmInfoId.name}, ${filmInfoId.year}, ${countries[0]}, ${filmInfoId.enName}, ${translateCategory(filmInfoId.type)}, смотреть, онлайн, бесплатно, hd`}></meta>
+          <meta name="keywords" content={`${filmInfoId.name}, ${filmInfoId.year}, ${filmInfoId.alternativeName || filmInfoId.enName}, ${translateCategory(filmInfoId.type)}, смотреть, онлайн, бесплатно, hd`}></meta>
         ): <meta name="keywords" content={`смотреть, онлайн, бесплатно, hd`}></meta>}
         {
           <meta property="og:image" content={`${preview}`}/>
