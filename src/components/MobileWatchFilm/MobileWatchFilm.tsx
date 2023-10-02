@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { CrossIconFilm, Iframe, Wrapper } from "./MobileWatchFilm.styles";
+import { CrossIconFilm, Iframe, Wrapper, WrapperIframeMobile } from "./MobileWatchFilm.styles";
 import { getFilmById } from "../../store/filmInfoSlice";
 import { useAppDispatch } from "../../hook";
 import { MobileWatchFilmProps } from "./MobileWatchFilm.types";
-import s from './MobileWatchFilm.module.css';
-import { CrossIcon, Line1, Line2 } from "../allFilmsPage/AllFilmsPage.styles";
+import { Line1, Line2 } from "../allFilmsPage/AllFilmsPage.styles";
 
 const MobileWatchFilm: React.FC<MobileWatchFilmProps> = ({id, setWatchFilm}) => {
   const dispatch = useAppDispatch()
@@ -36,10 +35,10 @@ const MobileWatchFilm: React.FC<MobileWatchFilmProps> = ({id, setWatchFilm}) => 
           <Line1 />
           <Line2 />
         </CrossIconFilm>
-      <div key={id.toString()}>
+      <WrapperIframeMobile key={id.toString()}>
               {/* <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div> */}
               <Iframe src={`https://v1687699810.bazon.site/kp/${id}?noads=1`} frameBorder="0" scrolling="no" allowFullScreen referrerPolicy="origin" width="500" height="352"></Iframe>
-            </div>
+            </WrapperIframeMobile>
     </Wrapper>
   )
 };

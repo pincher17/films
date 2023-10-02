@@ -4,3 +4,6 @@ export interface MobileWatchFilmProps {
     setWatchFilm: any
 }
 
+export interface WrapperIframeMobileProps {
+    key: string
+}

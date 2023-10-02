@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { CrossIcon } from "../allFilmsPage/AllFilmsPage.styles";
 import { IframeProps } from "../FilmPage/Iframe.types";
+import { WrapperIframeMobileProps } from "./MobileWatchFilm.types";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -22,9 +23,14 @@ export const CrossIconFilm = styled(CrossIcon)`
     left: 62%;
 `;
 
+export const WrapperIframeMobile = styled.div<WrapperIframeMobileProps>`
+  margin-top: 90px;
+  margin-left: 7px;
+`
+
 export const Iframe = styled.iframe<IframeProps>`
     width: 70% !important;
-    height: 65vh !important;
+    height: 50vh !important;
     top: 7%;
     left: 5px;
 `

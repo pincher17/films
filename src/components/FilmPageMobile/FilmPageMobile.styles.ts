@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Img, ImgWrap, ImgWrapper } from "../Card";
 
 export const Wrapper = styled.div`
   z-index: 1;
@@ -56,9 +57,17 @@ export const MarginTopTitle = styled(NameTitle)`
 export const MarginTopValue = styled(TextValue)`
   margin-top: -8px;
 `;
-export const Img = styled.div`
-  margin-right: 5px;
+export const ImgWrapperFilmMobile = styled(ImgWrapper)`
+  width: 280px;
+  margin: 0 auto;
 `;
+export const ImgWrapFilmMobile = styled(ImgWrap)`
+  height: 414.77px;
+`;
+export const ImgMainMobile = styled(Img)`
+  border-radius: 0;
+`;
+
 export const PositionAbsolute = styled.div`
   position: absolute;
 `;

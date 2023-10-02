@@ -24,7 +24,7 @@ export const CrossIconFilm = styled(CrossIcon)`
 
 export const Iframe = styled.iframe<IframeProps>`
     width: 70% !important;
-    height: 65vh !important;
+    height: 50vh !important;
     top: 7%;
     left: 5px;
 `

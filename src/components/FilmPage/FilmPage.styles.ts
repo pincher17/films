@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IframeProps } from "./Iframe.types";
+import { ImgWrap, ImgWrapper, Img } from "../Card";
 
 export const Wrapper = styled.div`
   z-index: 1;
@@ -53,9 +54,20 @@ export const MarginTopTitle = styled(NameTitle)`
 export const MarginTopValue = styled(TextValue)`
   margin-top: -8px;
 `;
-export const Img = styled.div`
+/* export const Img = styled.div`
+  margin-right: 5px;
+`; */
+export const ImgWrapperFilm = styled(ImgWrapper)`
+  width: 360px;
   margin-right: 5px;
 `;
+export const ImgWrapFilm = styled(ImgWrap)`
+  height: 533px;
+`;
+export const ImgMain = styled(Img)`
+  border-radius: 0;
+`;
+
 export const PositionAbsolute = styled.div`
   position: absolute;
 `;
@@ -63,6 +75,10 @@ export const Film = styled.div`
   position: absolute !important;
   width: 70% !important;
   height: 100% !important;
+`;
+export const WrapperIframe = styled.div`
+  width: 100%;
+  height: 533px;
 `;
 export const iframe = styled.div`
   position: absolute !important;
@@ -92,20 +108,24 @@ export const SwiperWrapperSimilar = styled.div`
 
 
 export const Iframe = styled.iframe<IframeProps>`
- width: 71% !important;
+ width: 100% !important;
+ height: 100% !important;
  @media (min-width: 1500px){
-  width: 75% !important;
+  width: 100% !important;
+  height: 100% !important;
   }
   @media (max-width: 1300px){
-  width: 70% !important;
+  width: 107% !important;
+  height: 100% !important;
   }
  @media (max-width: 1150px){
   height: 500px !important;
-  width: 75% !important;
+  width: 220% !important;
+  margin-top: 20px;
   }
   @media (max-width: 1030px){
   height: 500px !important;
-  width: 85% !important;
+  width: 220% !important;
   }
 `
 

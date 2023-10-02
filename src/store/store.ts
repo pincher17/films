@@ -4,7 +4,6 @@ import filmInfo from './filmInfoSlice';
 import filtersSlice from './filtersSlice';
 import newFilmsReducer from './newFilmsSlice';
 import searchSlice from './searchSlice';
-import youTubeTrailer from './youtubeSlice';
 import widthDeviceSlice from './widthDeviceSlice';
 import Loading from './Loading';
 import filmsMainPageSlice from './FilmsMainPageSlice';
@@ -22,7 +21,6 @@ import filmsMainPageSlice from './FilmsMainPageSlice';
 const store = configureStore({
   reducer: {
   newFilms: newFilmsReducer,
-  trailer: youTubeTrailer,
   filmInfo: filmInfo,
   search: searchSlice,
   filters: filtersSlice,

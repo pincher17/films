@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { getFilmById } from "../../store/filmInfoSlice";
 import LayoutFilm from "../layoutFilm/LayoutFilm";
 import SwiperFilms from "../SwiperFilms/SwiperFilms";
-import s from "./FilmPage.module.css";
 import {
   Description,
   Iframe,
+  ImgMain,
+  ImgWrapFilm,
+  ImgWrapperFilm,
   SwiperWrapperSimilar,
   TitleDescription,
-  TrailerWrapper,
   Wrapper,
+  WrapperIframe,
   WrapperInfo,
   WrapperWatchFilm,
 } from "./FilmPage.styles";
@@ -126,12 +128,19 @@ const FilmPage: React.FC = (props) => {
           />
           <WrapperWatchFilm>
             <div>
+              {/* <img itemProp= "image" className={s.img} src={preview} alt={filmInfoId?.name} /> */}
               {
-                loading ? <SkeletonImage /> : <img itemProp= "image" className={s.img} src={preview} alt={filmInfoId?.name} />
+                loading 
+                ? <SkeletonImage />  
+                : <ImgWrapperFilm>
+                    <ImgWrapFilm>
+                      <ImgMain src={preview} alt={filmInfoId?.name} />
+                    </ImgWrapFilm>
+                  </ImgWrapperFilm>
               }
               
             </div>
-            <div key={id.toString()}>
+            <WrapperIframe key={id.toString()}>
               {/* <div key={id + id} className={s.film} ref={refDataFilm} id="yohoho" data-tv="1" ></div> */}
               {/* <div key={id} ref={refDataFilm} id='bazon' data-width='600' data-height='400'></div> */}
               <Iframe
@@ -143,7 +152,7 @@ const FilmPage: React.FC = (props) => {
                 width="500"
                 height="352"
               ></Iframe>
-            </div>
+            </WrapperIframe>
           </WrapperWatchFilm>
           {filmInfoId?.videos && filmInfoId?.videos.trailers[0] ? <Trailer src={`${filmInfoId?.videos.trailers[0].url}`}/>  : ''}
         </WrapperInfo>

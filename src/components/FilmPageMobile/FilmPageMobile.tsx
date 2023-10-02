@@ -8,6 +8,9 @@ import s from "./FilmPageMobile.module.css";
 import {
   ButtonWatch,
   Description,
+  ImgMainMobile,
+  ImgWrapFilmMobile,
+  ImgWrapperFilmMobile,
   SwiperWrapperSimilar,
   TitleDescription,
   TrailerButtonWatch,
@@ -87,7 +90,13 @@ const FilmPageMobile: React.FC = (props) => {
         <WrapperInfo>
           <WrapperWatchFilm>
             <div>
-              {loading ? <SkeletonImage /> : <img className={s.img} src={preview} alt={filmInfoId?.name} />}
+              {loading ? <SkeletonImage /> 
+              : <ImgWrapperFilmMobile>
+                  <ImgWrapFilmMobile>
+                    <ImgMainMobile src={preview} alt={filmInfoId?.name} />
+                  </ImgWrapFilmMobile>
+                </ImgWrapperFilmMobile>
+          }
             </div>
             <FilmInfoText
               countries={countries}
