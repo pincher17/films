@@ -5,7 +5,7 @@ import { WrapperIframeMobileProps } from "./MobileWatchFilm.types";
 
 export const Wrapper = styled.div`
   position: fixed;
-  z-index: 5;
+  z-index: 25;
   top: 0;
   left: 0;
   width: 140vw;
@@ -30,7 +30,7 @@ export const WrapperIframeMobile = styled.div<WrapperIframeMobileProps>`
 
 export const Iframe = styled.iframe<IframeProps>`
     width: 70% !important;
-    height: 50vh !important;
+    height: 62vh !important;
     top: 7%;
     left: 5px;
 `
