@@ -76,7 +76,7 @@ const FilmPage: React.FC = (props) => {
     };
     }, [id]); */
 
-  if (resolution.width && resolution.width < 850) {
+  if (resolution.width < 850) {
     return <FilmPageMobile />;
   }
 

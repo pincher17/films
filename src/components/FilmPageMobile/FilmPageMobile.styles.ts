@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 export const WrapperInfo = styled.div`
     @media (max-width: 1150px){
     display: flex;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
     justify-content: space-between;
     justify-content: center;
   }
