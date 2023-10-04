@@ -23,7 +23,7 @@ const FilmInfoText: React.FC<FilmInfoTextProps> = (props) => {
       <Name>
         {filmInfoId?.name && (
           <>
-            {filmInfoId.name} {filmInfoId.year ? `(${filmInfoId.year} г.)` : ""}
+            {filmInfoId.name} {filmInfoId.year ? `(${filmInfoId.year}\u00A0г.)` : ""}
           </>
         )}
       </Name>
