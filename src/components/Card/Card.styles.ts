@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 100%;
+  overflow: hidden;
 `
 
 export const ImgWrapper = styled.div`
@@ -48,5 +49,10 @@ export const ImgWrap = styled.div`
     padding-bottom: 150%;
   }
   
+`
+export const NameFilm = styled.p`
+  white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis; /* Добавляем многоточие */
 `
 

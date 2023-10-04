@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Img, ImgWrap, ImgWrapper, Rating, RatingNum, Wrapper, Year } from './Card.styles';
+import { Img, ImgWrap, ImgWrapper, NameFilm, Rating, RatingNum, Wrapper, Year } from './Card.styles';
 import { CardProps } from './Card.types';
 import roundNumber from '../../helpers/rounding';
 
@@ -32,7 +32,7 @@ const {
             <Rating>
                 <RatingNum>{ratingKp}</RatingNum>
             </Rating>}
-            <p>{name}</p>
+            <NameFilm title={name}>{name}</NameFilm>
             <Year>{year}</Year>
             </ImgWrapper>
             </NavLink>
