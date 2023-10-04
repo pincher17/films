@@ -34,4 +34,7 @@ export const WrapperCheckbox = styled.div`
 
 export const ButtonWrapper = styled.div`
  width: 220px;
+ @media (max-width: 850px){
+    margin-bottom: 250px;
+  }
 `

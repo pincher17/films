@@ -52,6 +52,12 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({options, onChange}) => {
         color: 'white'
       };
     },
+    placeholder: (styles) => {
+      return {
+        ...styles,
+        color: '#ffffff',
+      };
+    },
     multiValueRemove: (styles) => {
       return {
         ...styles,
@@ -95,6 +101,8 @@ const MultipleSelect: React.FC<MultipleSelectProps> = ({options, onChange}) => {
       onChange={setSelectedOption}
       styles={colourStyles}
       value={selectedOption}
+      isSearchable={false}
+      placeholder={'Выбрать'}
     theme={(theme) => ({
       ...theme,
       borderRadius: 5,

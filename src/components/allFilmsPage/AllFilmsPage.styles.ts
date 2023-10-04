@@ -46,7 +46,7 @@ export const WrapperButtonShowMore = styled.div`
 `
 export const CrossIcon = styled.div<CrossIconProps>`
 display: none;
-@media (max-width: 850px){
+@media (max-width: 1150px){
 display: block;
   }
   width: 25px;
