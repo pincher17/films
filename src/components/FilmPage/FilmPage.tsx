@@ -134,7 +134,7 @@ const FilmPage: React.FC = (props) => {
                 ? <SkeletonImage />  
                 : <ImgWrapperFilm>
                     <ImgWrapFilm>
-                      <ImgMain src={preview} alt={filmInfoId?.name} />
+                      <ImgMain src={preview} alt={filmInfoId?.name} itemProp="contentUrl" />
                     </ImgWrapFilm>
                   </ImgWrapperFilm>
               }

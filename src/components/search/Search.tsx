@@ -27,19 +27,18 @@ const Search: React.FC = () => {
     }
   }, [text]);
 
-  /* useSetBodyScroll() */
-/*   useEffect(() => {
-    const html = document.querySelector("html");
-    if (html) {
-      if (mobileSearch) {
-        html.style.overflow = "hidden";
-        html.style.position = "fixed";
-      } else {
-        html.style.overflow = "auto";
-        html.style.position = "static";
-      }
+  useEffect(() => {
+    if (mobileSearch) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
     }
-  }, [mobileSearch]); */
+
+    // Возвращаем функцию для очистки класса при размонтировании компонента
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [mobileSearch]);
 
   useEffect(() => {
     if (text.length >= 2 && resultSearch.length > 0) {

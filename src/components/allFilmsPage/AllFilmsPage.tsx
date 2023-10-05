@@ -21,6 +21,21 @@ const AllFilmsPage: React.FC = () =>{
   const showMore = () => dispatch(nextPage())
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false)
   const [resolution, setResolution] = React.useState<any>({ width: 0, height: 0 });
+  
+
+  useEffect(() => {
+    if (isOpenSidebar) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Возвращаем функцию для очистки класса при размонтировании компонента
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpenSidebar]);
+
     
       useEffect(() => {
         dispatch(setIsVisible(false))

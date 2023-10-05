@@ -21,7 +21,7 @@ const Filters: React.FC<FiltersProps> = ({mobile, setIsOpenSidebar}) =>{
     const [typeOfMovies, setTypeOfMovies] = React.useState(filters.typeOfMovies);
     const [selectedTypeOfMovies, setSelectedTypeOfMovies] = React.useState(filters.selectedTypeOfMovies);
 
-    console.log(typeOfMovies)
+    
     const changeFilters = () => {
         const createfilters: initialStateFiltersType ={
             genre: valueGenre,

@@ -20,7 +20,7 @@ const FilmInfoText: React.FC<FilmInfoTextProps> = (props) => {
 
   return (
     <div>
-      <Name>
+      <Name itemProp="name">
         {filmInfoId?.name && (
           <>
             {filmInfoId.name} {filmInfoId.year ? `(${filmInfoId.year}\u00A0г.)` : ""}
