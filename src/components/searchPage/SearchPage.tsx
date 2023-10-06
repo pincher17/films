@@ -16,6 +16,8 @@ const SearchPage: React.FC = () =>{
   const { searchQuery }: any = useParams();
   const [page, setPage] = useState(1);
   const didMount = React.useRef(false);
+
+  console.log(resultSearch)
   
   useEffect(() => {
     dispatch(refreshResultSearchPage())
@@ -45,7 +47,7 @@ console.log(page)
             </div>
             <div><p className={s.total_films}>{`Найдено: ${totalFilms}шт.`}</p></div>
         </div>
-    <Cards cards={resultSearch} />
+    {resultSearch.length && <Cards cards={resultSearch} />}
     {totalPages === page ? <></> : <div className={s.wrapper_btn_show_more}><button onClick={showMore} className={s.btn}>Показать еще</button></div>}
     </div>
     </MainTag>

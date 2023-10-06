@@ -26,7 +26,7 @@ const {
             <NavLink to={'/film/' + id }>
             <ImgWrapper>
             <ImgWrap>
-            {poster.url ? <Img src={poster.url} alt={name} /> : null}
+            {poster?.url && <Img src={poster.url} alt={name} />}
             </ImgWrap>
             {ratingKp &&
             <Rating>
