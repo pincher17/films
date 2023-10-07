@@ -1,12 +1,12 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>filmhub.ru/sitemap1.xml</loc>
+<loc>https://www.filmhub.ru/sitemap1.xml</loc>
 <priority>0.9</priority>
 <changefreq>never</changefreq>
 <lastmod>2023-10-06</lastmod>
 </url>
 <url>
-<loc>filmhub.ru/sitemap2.xml</loc>
+<loc>https://www.filmhub.ru/sitemap2.xml</loc>
 <priority>0.9</priority>
 <changefreq>never</changefreq>
 <lastmod>2023-10-06</lastmod>
