@@ -8,7 +8,7 @@ import SwiperMainPage from '../SwiperMainPage/SwiperMainPage';
 
 
 const NewFilms: React.FC = () =>{
-
+const loading = useAppSelector((state) => state.loading.loading);
   /* const films = useAppSelector(state => state.newFilms.films); */
   const limit = useAppSelector(state => state.newFilms.limit);
   const dispatch = useAppDispatch()

@@ -14,6 +14,7 @@ import { setWidthDevice } from './store/widthDeviceSlice';
 import { Helmet } from 'react-helmet-async';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './helpers/ScrollToTop';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         <Route path='/film/:id' element={<FilmPage />}/>
         <Route path='/search/:searchQuery' element={<SearchPage />}/>
         <Route path='/films' element={<AllFilmsPage />}/>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <MobileNavigation />
       <Footer />

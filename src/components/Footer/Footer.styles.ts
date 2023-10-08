@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { FooterStyleProps } from "./Footer.types";
 
-export const FooterWrap = styled.footer`
+export const FooterWrap = styled.footer<FooterStyleProps>`
+  display: ${(props) => props.show ? 'flex' : 'none'};
   height: 60px;
   margin-top: -30px;
   background-color: #242424;
-  display: flex;
   align-items: center;
   justify-content: center;
   position: relative;

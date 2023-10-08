@@ -11,7 +11,7 @@ const Header: React.FC = () =>{
         <div className={s.header_wrapper}>
         {/* <NavLink to={'/'} className={s.logo}>FILMS</NavLink> */}
         <NavLink to={'/'} className={s.logo}>
-          <img className={s.logo} src={logo} alt='logo'/>
+          <img className={s.logo} src={logo} alt='filmhub'/>
         </NavLink>
         <Search />
         <nav className={s.nav}>

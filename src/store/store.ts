@@ -7,6 +7,7 @@ import searchSlice from './searchSlice';
 import widthDeviceSlice from './widthDeviceSlice';
 import Loading from './Loading';
 import filmsMainPageSlice from './FilmsMainPageSlice';
+import Footer from './Footer';
 
 /* const rootReducer = combineReducers({
   newFilms: newFilmsReducer,
@@ -27,6 +28,7 @@ const store = configureStore({
   allFilms: allFilmsSlice,
   widthDevice: widthDeviceSlice,
   loading: Loading,
+  footer: Footer,
   filmsMainPage: filmsMainPageSlice
   },
 });
